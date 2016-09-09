@@ -1,0 +1,357 @@
+/*
+---
+name     : c-navbar
+category :
+  - Objects/Components
+  - Objects/Components/c-navbar
+---
+
+選択中のナビには `c-navbar__item` に `is-active` を付与。  
+非活性のナビには `c-navbar__item` に `is-disabled` を付与。  
+
+```html
+<ul class="c-navbar">
+  <li class="c-navbar__item is-active">
+    <a class="c-navbar__target" href="#">ナビ項目</a>
+  </li>
+  <li class="c-navbar__item">
+    <a class="c-navbar__target" href="#">ナビ項目</a>
+  </li>
+  <li class="c-navbar__item">
+    <a class="c-navbar__target" href="#">ナビ項目</a>
+  </li>
+  <li class="c-navbar__item">
+    <a class="c-navbar__target is-idle" href="#">ナビ項目</a>
+  </li>
+  <li class="c-navbar__item is-disabled">
+    <span class="c-navbar__target">ナビ項目</span>
+  </li>
+  <li class="c-navbar__item c-navbar__item--dropdown">
+    <a class="c-navbar__target" href="#">ナビ項目</a>
+    <div class="c-navbar__dropdown-wrapper">
+      <ul class="c-navbar__dropdown">
+        <li class="c-navbar__item">
+          <a class="c-navbar__target" href="#">サブナビ項目</a>
+        </li>
+        <li class="c-navbar__item">
+          <a class="c-navbar__target" href="#">サブナビ項目</a>
+        </li>
+        <li class="c-navbar__item is-disabled">
+          <span class="c-navbar__target">サブナビ項目</span>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <li class="c-navbar__item c-navbar__item--dropdown is-active">
+    <a class="c-navbar__target" href="#">ナビ項目</a>
+    <div class="c-navbar__dropdown-wrapper">
+      <ul class="c-navbar__dropdown">
+        <li class="c-navbar__item">
+          <a class="c-navbar__target" href="#">サブナビ項目</a>
+        </li>
+        <li class="c-navbar__item is-active">
+          <a class="c-navbar__target" href="#">サブナビ項目</a>
+        </li>
+        <li class="c-navbar__item is-disabled">
+          <span class="c-navbar__target">サブナビ項目</span>
+        </li>
+      </ul>
+    </div>
+  </li>
+</ul>
+```
+
+*/
+.c-navbar {
+  $this: &;
+  
+  display: table;
+  padding: 0 20px;
+  border-top: 1px solid $g-border-color;
+  border-bottom: 1px solid $g-border-color;
+  width: 100%;
+  table-layout: fixed;
+  background-color: $g-background-color--light;
+
+  @include box-sizing(border-box);
+  
+  &__item {
+    display: table-cell;
+    border-right: 1px solid $g-border-color;
+    cursor: pointer;
+    color: $g-text-color;
+    line-height: 1.4;
+    vertical-align: bottom;
+    background-color: $g-background-color--light;
+    
+    &:first-child {
+      border-left: 1px solid $g-border-color;
+    }
+    &:hover {
+      background-color: lighten($g-background-color--light, 2%);
+    }
+    &.is-active.is-active {
+      cursor: default;
+      color: $g-text-color--title;
+      background-color: $g-color--white;
+    }
+    &.is-disabled.is-disabled.is-disabled {
+      cursor: default;
+      color: $g-text-color--disabled;
+      background-color: $g-background-color--light;
+    }
+    
+    #{$this}__dropdown & {
+      display: block;
+      border: none;
+      border-top: 1px dotted $g-border-color;
+      background-color: lighten($g-background-color--light, 2%);
+      &:hover {
+        background-color: lighten($g-background-color--light, 4%);
+      }
+    }
+  }
+  &__target {
+    position: relative;
+    display: block;
+    cursor: inherit;
+    overflow: hidden;
+    color: inherit;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    @include rem(padding, 10px 2px);
+    
+    &:hover {
+      color: inherit;
+    }
+    &.is-idle:before {
+      display: inline-block;
+      margin-right: 0.2em;
+      line-height: 1;
+      color: $g-text-color--attention;
+      @include glyph(tabelog, block);
+    }
+    
+    #{$this}__item.is-active > & {
+      margin-bottom: -1px;
+      font-weight: bold;
+      border-bottom: 1px solid $g-color--white;
+      
+      #{$this}__dropdown & {
+        margin-bottom: 0;
+        border-bottom: none;
+      }
+    }
+    
+    #{$this}__item#{$this}__item--dropdown > & {
+      @include rem(padding-right, 16px);
+      &:after {
+        position: absolute;
+        top: 50%;
+        z-index: 2;
+        cursor: inherit;
+        margin-top: -0.5em;
+        width: 1em;
+        height: 1em;
+        color: $g-icon-color--dark;
+        line-height: 1;
+        @include rem(right, 6px);
+        @include rem(font-size, 14px);
+        @include glyph(tabelog, arrowdown);
+        @include transition(0.2s ease);
+      }
+    }
+    #{$this}__item#{$this}__item--dropdown:hover & {
+      &:after {
+        color: $g-icon-color;
+        @include transform(rotate(-180deg));
+      }
+    }
+  }
+  
+  &__dropdown-wrapper {
+    display: block;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    @include transition(0.2s ease);
+    
+    #{$this}__item#{$this}__item--dropdown:hover & {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  &__dropdown {
+    display: block;
+    position: absolute;
+    left: -1px;
+    right: -1px;
+    border-right: 1px solid $g-border-color;
+    border-bottom: 1px solid $g-border-color;
+    border-left: 1px solid $g-border-color;
+  }
+}
+
+
+
+// ==================================================
+// ■ 以下、移行時の互換用（置き換えたら消す）
+// ==================================================
+.navbar {
+  padding: 0 20px;
+  border-top: 1px solid #c1c4c5;
+  border-bottom: 1px solid #c1c4c5;
+  background-color: #f7f7f7;
+}
+.navbar:before,
+.navbar:after {
+  display: block;
+  overflow: hidden;
+  content: "";
+}
+.navbar:after {
+  clear: both;
+}
+.navbar {
+  *zoom: 1;
+}
+.navbar__item {
+  position: relative;
+  float: left;
+  border-right: 1px solid #c1c4c5;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  line-height: 1.4;
+}
+.navbar__item:first-child {
+  border-left: 1px solid #c1c4c5;
+}
+.navbar__item.navbar__item--dropdown {
+  position: relative;
+}
+.navbar__item.navbar__item--dropdown:after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  z-index: 1;
+  margin-top: -2px;
+  width: 7px;
+  height: 5px;
+  content: "";
+  background: tb-image-url('owner/yoyaku/icon/icon_navbar_down.png') no-repeat 0 0;
+}
+.navbar__item.navbar__item--dropdown:hover:after {
+  display: none;
+}
+.navbar__target {
+  display: block;
+  cursor: pointer;
+  padding: 9px 1.2em;
+  overflow: hidden;
+  color: #273c5c;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background-color: #f7f7f7;
+}
+.navbar__item:hover .navbar__target {
+  color: #375582;
+  background-color: #fdfdfd;
+}
+.navbar__item.navbar__item--dropdown > .navbar__target {
+  cursor: default;
+}
+.navbar__target.is-idle:before {
+  display: inline-block;
+  margin-right: 0.3em;
+  color: #cc301f;
+  font-size: 0.9em;
+  @include glyph(tabelog, block);
+}
+a.navbar__target {
+  color: #273c5c;
+  text-decoration: none;
+}
+.navbar__item.is-selected > .navbar__target {
+  margin-bottom: -1px;
+  border-bottom: 1px solid #ffffff;
+  color: #1c2b42;
+  font-weight: bold;
+  background-color: #ffffff;
+}
+.navbar__item.is-disabled {
+  cursor: default;
+  padding: 9px 1.2em;
+  overflow: hidden;
+  color: #d6d8d9;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background-color: #f7f7f7;
+}
+/* タブレット端末用 トリガー */
+.tablet-dropdown-trigger {
+  display: none;
+}
+@media screen and (max-device-width: 1024px) {
+  .tablet-dropdown-trigger {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+  }
+  .navbar__item.navbar__item--dropdown:hover:after {
+    display: block;
+  }
+}
+/* navbar-lev2 */
+.navbar-lev2 {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: -1px;
+  border: 1px solid #c1c4c5;
+  border-top: none;
+  width: 100%;
+  box-sizing: content-box;
+  font-size: 92%;
+  text-align: center;
+  background-color: #ffffff;
+}
+.navbar__item:hover > .navbar-lev2 {
+  display: block;
+}
+.navbar-lev2__item {
+  border-top: 1px dotted #c1c4c5;
+  background-color: #ffffff;
+}
+.navbar-lev2__target {
+  display: block;
+  padding: 10px 0;
+  color: #0b8ad4;
+  text-decoration: none;
+  background-color: #ffffff;;
+}
+.navbar-lev2__target:hover {
+  color: #0ca3fa;
+  background-color: #f7f7f7;
+}
+.navbar-lev2__target.is-disabled {
+  cursor: default;
+  color: #d6d8d9;
+}
+.navbar-lev2__target.is-disabled:hover {
+  color: #d6d8d9;
+  background-color: #ffffff;
+}

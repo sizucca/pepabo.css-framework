@@ -1,0 +1,209 @@
+/*
+---
+name     : c-alert
+category :
+  - Objects/Components
+  - Objects/Components/c-alert
+---
+
+1 行メッセージ。  
+**太字** にしたいテキストは `strong` `em` `b` のいずれか（適切な要素）でマークアップする。
+
+```html
+<div class="c-alert">
+  <p class="c-alert__message">
+    <strong>タイトル！</strong>1 行のメッセージ文です（デフォルトスタイル）。
+  </p>
+  <button type="button" class="c-alert__close">×</button>
+</div>
+```
+
+```html
+<div class="c-alert is-success">
+  <p class="c-alert__message">
+    <strong>完了です！</strong>完了や成功などのメッセージ文です。
+  </p>
+  <button type="button" class="c-alert__close">×</button>
+</div>
+```
+
+```html
+<div class="c-alert is-info">
+  <p class="c-alert__message">
+    <strong>説明です！</strong>説明やインフォメーションなどのメッセージ文です。
+  </p>
+  <button type="button" class="c-alert__close">×</button>
+</div>
+```
+
+```html
+<div class="c-alert is-warning">
+  <p class="c-alert__message">
+    <strong>注意！</strong>注意や警告などのメッセージ文です。
+  </p>
+  <button type="button" class="c-alert__close">×</button>
+</div>
+```
+
+```html
+<div class="c-alert is-danger">
+  <p class="c-alert__message">
+    <strong>エラー！</strong>エラーや強い警告などのメッセージ文です。
+  </p>
+  <button type="button" class="c-alert__close">×</button>
+</div>
+```
+
+*/
+
+.c-alert {
+  position: relative;
+  border: 1px solid map-get($g-oc-colors, default--border);
+  border-radius: $g-border-radius--alert;
+  line-height: 1.5;
+  background-color: map-get($g-oc-colors, default--background);
+  @include rem(padding, 10px 24px 10px 12px);
+  
+  // modifiers
+  $modifiers: success, info, warning, danger;
+  @each $modifier in $modifiers {
+    &.is-#{$modifier} {
+      border-color     : map-get($g-oc-colors, #{$modifier}--border);
+      color            : map-get($g-oc-colors, #{$modifier}--text);
+      background-color : map-get($g-oc-colors, #{$modifier}--background);
+    }
+  }
+  
+  // element
+  &__message {
+    display: block;
+    @include rem(margin, 2px 0);
+    > * {
+      margin-right: 0.3em;
+    }
+  }
+  &__close {
+    $close-size  : 20px;
+    $icon-size   : 12px;
+    $line-height : ($close-size / $icon-size);
+    
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+    color: transparent;
+    background-color: transparent;
+    @include appearance(none);
+    @include rem(width, $close-size);
+    @include rem(height, $close-size);
+    &:before {
+      display: inline-block;
+      color: $g-icon-color--dark;
+      text-align: center;
+      line-height: $line-height;
+      
+      @include rem(width, $close-size);
+      @include rem(height, $close-size);
+      @include rem(font-size, $icon-size);
+      @include glyph(owner, wrong);
+    }
+    &:hover:before {
+      color: $g-icon-color--light;
+    }
+  }
+}
+
+
+// ==================================================
+// ■ 以下、移行時の互換用（置き換えたら消す）
+// ==================================================
+.alert {
+  position: relative;
+  padding: 10px 24px 10px 12px;
+  border: #c1c4c5 solid 1px;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+}
+.alert strong {
+  font-weight: bold;
+}
+.alert__message {
+  padding: 2px 0;
+}
+.alert__message > strong {
+  margin-right: 4px;
+}
+.alert__close {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: none;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  color: #999d9f;
+  font-size: 12px;
+  background-color: transparent;
+  &:before {
+    display: block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    @include glyph(owner, wrong);
+  }
+}
+.alert__close:hover {
+  color: #adb1b2;
+}
+.tablet .alert__close {
+  top: 4px;
+  right: 4px;
+  font-size: 14px;
+}
+/* is-success */
+.alert.is-success {
+  border-color: #b0ca72;
+  color: #80a030;
+  background-color: #f4f7eb;
+}
+.alert.is-success strong {
+  color: #80a030;
+}
+/* is-info */
+.alert.is-info {
+  border-color: #60bcd2;
+  color: #1a90ad;
+  background-color: #e8f5f8;
+}
+.alert.is-info strong {
+  color: #1a90ad;
+}
+/* is-warning */
+.alert.is-warning {
+  border-color: #f6c357;
+  color: #d99400;
+  background-color: #fef8e7;
+}
+.alert.is-warning strong {
+  color: #d99400;
+}
+/* is-error */
+.alert.is-error {
+  border-color: #ed7f74;
+  color: #cc301f;
+  background-color: #fceceb;
+}
+.alert.is-error strong {
+  color: #cc301f;
+}

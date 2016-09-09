@@ -1,0 +1,307 @@
+/*
+---
+name     : c-btn
+category :
+  - Objects/Components
+  - Objects/Components/c-btn
+---
+
+```html
+<button type="button" class="c-btn">デフォルト</button>
+<button type="button" class="c-btn c-btn--emphasis">重要</button>
+<button type="button" class="c-btn c-btn--primary">普通</button>
+<button type="button" class="c-btn c-btn--success">更新</button>
+<button type="button" class="c-btn c-btn--info">案内</button>
+<button type="button" class="c-btn c-btn--warning">注意</button>
+<button type="button" class="c-btn c-btn--danger">危険</button>
+<button type="button" class="c-btn c-btn--inverse">その他</button>
+<button type="button" class="c-btn c-btn--link">リンク</button>
+```
+
+```html
+<a href="#" class="c-btn">デフォルト</a>
+<a href="#" class="c-btn c-btn--emphasis">重要</a>
+<a href="#" class="c-btn c-btn--primary">普通</a>
+<a href="#" class="c-btn c-btn--success">更新</a>
+<a href="#" class="c-btn c-btn--info">案内</a>
+<a href="#" class="c-btn c-btn--warning">注意</a>
+<a href="#" class="c-btn c-btn--danger">危険</a>
+<a href="#" class="c-btn c-btn--inverse">その他</a>
+<a href="#" class="c-btn c-btn--link">リンク</a>
+```
+
+
+*/
+
+.c-btn {
+  display: inline-block;
+  cursor: pointer;
+  margin: 0;
+  border: 1px solid rgba($g-color--black, 0.15);
+  border-bottom-width: 2px;
+  border-bottom-color: rgba($g-color--black, 0.2);
+  border-radius: $g-border-radius--btn;
+  color: $g-text-color;
+  font-weight: normal;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 1px 0 $g-color--white;
+  vertical-align: middle;
+  line-height: 1.4;
+  background-color: map-get($g-oc-colors, default--background);
+  
+  @include appearance(none);
+  @include rem(padding, 5px (5px * 3));
+  @include box-shadow(0 1px 1px $g-color--white inset);
+  @include box-sizing(border-box);
+  
+  @mixin _disabled {
+    &.is-disabled.is-disabled,
+    &:disabled:disabled {
+      @content;
+    }
+  }
+  
+  &:hover {
+    color: $g-text-color;
+    text-decoration: none;
+    background-color: $g-color--white;
+  }
+  @include _disabled {
+    $background-color : map-get($g-oc-colors, default--base);
+    
+    cursor: default;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: rgba($g-color--black, 0.05);
+    color: rgba($g-color--white, 0.95);
+    text-shadow: none;
+    background-color: rgba(desaturate($background-color, 20%), 0.2);
+    
+    @include box-shadow(none);
+  }
+  
+  // modifier(emphasis)
+  &#{&}--emphasis {
+    color: $g-text-color--attention;
+    @include _disabled {
+      color: rgba($g-color--white, 0.95);
+    }
+  }
+  
+  // modifier(link)
+  &#{&}--link {
+    color: $g-link-color;
+    text-shadow: none;
+    border-color: transparent;
+    background-color: transparent;
+    
+    @include box-shadow(none);
+    
+    &:hover {
+      color: $g-hover-color;
+      text-decoration: underline;
+    }
+    @include _disabled {
+      color: $g-text-color--disabled;
+      border-color: transparent;
+      text-decoration: none;
+      background-color: transparent;
+    }
+  }
+  
+  // modifiers
+  $modifiers: primary, success, info, warning, danger, inverse;
+  @each $modifier in $modifiers {
+    &#{&}--#{$modifier} {
+      $background-color : map-get($g-oc-colors, #{$modifier}--base);
+      
+      border-top-color: rgba($g-color--black, 0.05);
+      border-right-color: rgba($g-color--black, 0.05);
+      border-left-color: rgba($g-color--black, 0.05);
+      color: $g-color--white;
+      text-shadow: 0 -1px 0 rgba($g-color--black, 0.3);
+      background-color : $background-color;
+      
+      @include box-shadow(0 1px 1px rgba($g-color--white, 0.15) inset);
+      
+      &:hover {
+        background-color: saturate(lighten($background-color, 10%), 10%);
+      }
+      @include _disabled {
+        background-color: rgba(desaturate($background-color, 20%), 0.2);
+      }
+    }
+  }
+  
+  // modifier(size)
+  &#{&}--s {
+    @include rem(padding, 4px (4px * 3));
+    @include rem(font-size, 11px);
+  }
+  &#{&}--l {
+    @include rem(padding, 6px (6px * 3));
+    @include rem(font-size, 13px);
+  }
+  
+  // modifier(width)
+  &#{&}--full {
+    width: 100%;
+  }
+  
+  // glyph
+  &[class^="ogly-b-"]:before,
+  &[class*=" ogly-b-"]:before,
+  &[class^="ogly-a-"]:after,
+  &[class*=" ogly-a-"]:after {
+    display: inline-block;
+    font-size: 1.15em;
+    vertical-align: middle;
+    line-height: 1;
+  }
+  &[class^="ogly-b-"]:before,
+  &[class*=" ogly-b-"]:before {
+    margin-right: 0.3em;
+  }
+  &[class^="ogly-a-"]:after,
+  &[class*=" ogly-a-"]:after {
+    margin-left: 0.3em;
+  }
+}
+
+
+// ==================================================
+// ■ 以下、移行時の互換用（置き換えたら消す）※モジュール名とモディファイア名が微妙に違う
+// ==================================================
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  margin: 0;
+  border: 1px solid rgba($g-color--black, 0.15);
+  border-bottom-width: 2px;
+  border-bottom-color: rgba($g-color--black, 0.2);
+  border-radius: $g-border-radius--btn;
+  color: $g-text-color;
+  font-weight: normal;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 1px 0 $g-color--white;
+  vertical-align: middle;
+  line-height: 1.4;
+  background-color: map-get($g-oc-colors, default--background);
+  
+  @include appearance(none);
+  @include rem(padding, 5px (5px * 3));
+  @include box-shadow(0 1px 1px $g-color--white inset);
+  @include box-sizing(border-box);
+  
+  @mixin _disabled {
+    &.is-disabled.is-disabled,
+    &:disabled:disabled {
+      @content;
+    }
+  }
+  
+  &:hover {
+    color: $g-text-color;
+    text-decoration: none;
+    background-color: $g-color--white;
+  }
+  @include _disabled {
+    $background-color : map-get($g-oc-colors, default--base);
+    
+    cursor: default;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: rgba($g-color--black, 0.05);
+    color: rgba($g-color--white, 0.95);
+    text-shadow: none;
+    background-color: rgba(desaturate($background-color, 20%), 0.2);
+    
+    @include box-shadow(none);
+  }
+  
+  // modifier(emphasis)
+  &#{&}--emphasis {
+    color: $g-text-color--attention;
+    @include _disabled {
+      color: rgba($g-color--white, 0.95);
+    }
+  }
+  
+  // modifier(link)
+  &#{&}--link {
+    color: $g-link-color;
+    text-shadow: none;
+    border-color: transparent;
+    background-color: transparent;
+    
+    @include box-shadow(none);
+    
+    &:hover {
+      color: $g-hover-color;
+      text-decoration: underline;
+    }
+    @include _disabled {
+      color: $g-text-color--disabled;
+      border-color: transparent;
+      text-decoration: none;
+      background-color: transparent;
+    }
+  }
+  
+  // modifiers
+  $modifiers: primary, success, info, warning, danger, inverse;
+  @each $modifier in $modifiers {
+    &#{&}--#{$modifier} {
+      $background-color : map-get($g-oc-colors, #{$modifier}--base);
+      
+      border-top-color: rgba($g-color--black, 0.05);
+      border-right-color: rgba($g-color--black, 0.05);
+      border-left-color: rgba($g-color--black, 0.05);
+      color: $g-color--white;
+      text-shadow: 0 -1px 0 rgba($g-color--black, 0.3);
+      background-color : $background-color;
+      
+      @include box-shadow(0 1px 1px rgba($g-color--white, 0.15) inset);
+      
+      &:hover {
+        background-color: saturate(lighten($background-color, 10%), 10%);
+      }
+      @include _disabled {
+        background-color: rgba(desaturate($background-color, 20%), 0.2);
+      }
+    }
+  }
+  
+  // modifier(size)
+  &#{&}--sm {
+    @include rem(padding, 4px (4px * 3));
+    @include rem(font-size, 11px);
+  }
+  &#{&}--lg {
+    @include rem(padding, 6px (6px * 3));
+    @include rem(font-size, 13px);
+  }
+  
+  // glyph
+  &[class^="ogly-b-"]:before,
+  &[class*=" ogly-b-"]:before,
+  &[class^="ogly-a-"]:after,
+  &[class*=" ogly-a-"]:after {
+    display: inline-block;
+    font-size: 1.15em;
+    vertical-align: middle;
+    line-height: 1;
+  }
+  &[class^="ogly-b-"]:before,
+  &[class*=" ogly-b-"]:before {
+    margin-right: 0.3em;
+  }
+  &[class^="ogly-a-"]:after,
+  &[class*=" ogly-a-"]:after {
+    margin-left: 0.3em;
+  }
+}

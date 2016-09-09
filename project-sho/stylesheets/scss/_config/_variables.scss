@@ -1,0 +1,317 @@
+/*doc
+---
+title    : Variables
+name     : _02_variables
+category : index
+---
+
+*/
+// ==================================================
+
+/*doc
+---
+title    : Base
+parent   : _02_variables
+name     : _02_01_base
+category : index
+---
+
+### color
+
+<div class="sg-variables sg-variables--full"></div>
+
+| 変数名            | 値（色見本値）        | 説明    |
+| :---------------- | :-------------------- | :------ |
+| `$g-color--white` | { sg-color : white }  | 白      |
+| `$g-color--black` | { sg-color : black }  | 黒      |
+
+<div class="sg-variables sg-variables--full"></div>
+
+| 変数名                | 値（色見本値）                | 説明         |
+| :-------------------- | :---------------------------- | :----------- |
+| `$g-link-color`       | { sg-color : link-blue }      | link 色      |
+| `$g-hover-color`      | { sg-color : link-orange }    | hover 色     |
+| `$g-key-color`        | { sg-color : accent-navy }    | キーカラー   |
+| `$g-error-color`      | { sg-color : accent-red }     | エラー色     |
+| `$g-success-color`    | { sg-color : accent-green }   | 成功色       |
+| `$g-highlight-color`  | { sg-color : accent-yellow }  | ハイライト色 |
+
+### day-color
+
+<div class="sg-variables sg-variables--full"></div>
+
+| 変数名                | 値（色見本値）                | 説明         |
+| :-------------------- | :---------------------------- | :----------- |
+| `$g-day-color--sat`   | { sg-color : accent-blue }    | 曜日（土曜） |
+| `$g-day-color--sun`   | { sg-color : accent-red }     | 曜日（日曜） |
+| `$g-day-color--today` | { sg-color : accent-yellow }  | 曜日（本日） |
+
+### component-color
+
+<div class="sg-variables sg-variables--full"></div>
+
+| 変数名                | 値（色見本値）                 | 説明                |
+| :-------------------- | :----------------------------  | :-----------        |
+| `$g-scrollbar-color`  | { sg-color : dark-gray--base } | `oc-scrollbar` の色 |
+| `$g-tooltip-color`    | { sg-color : dark-gray--base } | `oc-tooltip` の色   |
+
+### text-color
+
+<div class="sg-variables sg-variables--full"></div>
+
+| 変数名                     | 値（色見本値）                        | 説明                                                  |
+| :------------------------- | :------------------------------       | :-----------------------------------------------      |
+| `$g-text-color`            | { sg-color : dark-gray--base }        | 基本の文字色                                          |
+| `$g-text-color--title`     | { sg-color : accent-navy }            | タイトルの文字色 【注】`saturate` `darken` で微調整） |
+| `$g-text-color--example`   | { sg-color : dark-gray--light }       | 例示の文字色                                          |
+| `$g-text-color--indirect`  | { sg-color : dark-gray--ultra-light } | 婉曲の文字色（補足文など）                            |
+| `$g-text-color--disabled`  | { sg-color : gray--base }             | 非活性な文字色                                        |
+| `$g-text-color--notice`    | { sg-color : accent-green }           | 注釈の文字色                                          |
+| `$g-text-color--warning`   | { sg-color : accent-orange }          | 警告の文字色                                          |
+| `$g-text-color--attention` | { sg-color : accent-red }             | 最強調の文字色（警告に近い注意文など）                |
+
+### border-color
+
+<div class="sg-variables sg-variables--full"></div>
+
+| 変数名                    | 値（色見本値）                        | 説明                   |
+| :------------------------ | :------------------------------------ | :--------------------- |
+| `$g-border-color`         | { sg-color : gray--dark }             | 基本のボーダー色       |
+| `$g-border-color--light`  | { sg-color : gray--base }             | 薄いボーダー色         |
+| `$g-border-color--dark`   | { sg-color : dark-gray--ultra-light } | 濃いボーダー色         |
+
+### background-color
+
+<div class="sg-variables sg-variables--full"></div>
+
+| 変数名                         | 値（色見本値）                    | 説明              |
+| :----------------------------- | :-------------------------------- | :---------------- |
+| `$g-background-color`          | { sg-color : gray--extra-light }  | 基本の背景色      |
+| `$g-background-color--light`   | { sg-color : gray--ultra-light }  | 薄い背景色        |
+| `$g-background-color--dark`    | { sg-color : gray--light }        | 濃い背景色        |
+| `$g-background-color--body`    | { sg-color : gray--ultra-light }  | body の背景色     |
+
+### icon-color
+
+<div class="sg-variables sg-variables--full"></div>
+
+| 変数名                    | 値（色見本値）                        | 説明                   |
+| :------------------------ | :------------------------------       | :--------------------- |
+| `$g-icon-color`           | { sg-color : dark-gray--ultra-light } | 基本のアイコン色       |
+| `$g-icon-color--light`    | { sg-color : gray--dark }             | 薄いアイコン色         |
+| `$g-icon-color--dark`     | { sg-color : dark-gray--extra-light } | 濃いアイコン色         |
+
+### border-radius
+
+<div class="sg-variables sg-variables--full"></div>
+
+| 変数名                        | 値     | 説明                          |
+| :--------------------------   | :----- | :-------------------------    |
+| `$g-border-radius--alert`     | `4px`  | `oc-alert` の角丸の大きさ     |
+| `$g-border-radius--btn`       | `3px`  | `oc-btn` の角丸の大きさ       |
+| `$g-border-radius--badge`     | `3px`  | `oc-badge` の角丸の大きさ     |
+| `$g-border-radius--heading`   | `4px`  | `oc-heading` の角丸の大きさ   |
+| `$g-border-radius--label`     | `2px`  | `oc-label` の角丸の大きさ     |
+| `$g-border-radius--list`      | `5px`  | `oc-list` の角丸の大きさ      |
+| `$g-border-radius--navbtn`    | `4px`  | `oc-navbtn` の角丸の大きさ    |
+| `$g-border-radius--panel`     | `5px`  | `oc-navbtn` の角丸の大きさ    |
+| `$g-border-radius--select`    | `4px`  | `oc-select` の角丸の大きさ    |
+| `$g-border-radius--stepbar`   | `3px`  | `oc-stepbar` の角丸の大きさ   |
+| `$g-border-radius--textfield` | `4px`  | `oc-textfield` の角丸の大きさ |
+| `$g-border-radius--tooltip`   | `2px`  | `oc-tooltip` の角丸の大きさ   |
+
+### font-family
+
+<div class="sg-variables"></div>
+
+| 変数名               | 値                                                                                                                                           |
+| :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$g-font-family-ja`  | `'メイリオ', 'Meiryo', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', 'Helvetica Neue', Helvetica, Arial, sans-serif` |
+| `$g-font-family-num` | `Arial, sans-serif`
+
+### component
+
+<div class="sg-variables"></div>
+
+| 変数名              | 値      | 説明                       |
+| :------------------ | :-----  | :------------------------- |
+| `$g-oc-loader`      | `<Map>` | `oc-loader` の大きさと色   |
+
+*/
+// ==================================================
+
+// color
+$g-color--white : tb-color(white);
+$g-color--black : tb-color(black);
+
+$g-link-color      : tb-color(link-blue);
+$g-hover-color     : tb-color(link-orange);
+$g-key-color       : tb-color(accent-navy);
+$g-error-color     : tb-color(accent-red);
+$g-success-color   : tb-color(accent-green);
+$g-highlight-color : tb-color(accent-yellow);
+
+// day-color
+$g-day-color--sat   : tb-color(accent-blue);
+$g-day-color--sun   : tb-color(accent-red);
+$g-day-color--today : tb-color(accent-yellow);
+
+// component-color
+$g-scrollbar-color : tb-color(dark-gray--base);
+$g-tooltip-color   : tb-color(dark-gray--base);
+
+// text-color
+$g-text-color            : tb-color(dark-gray--base);
+$g-text-color--title     : saturate(darken(tb-color(accent-navy), 6%), 2%);
+$g-text-color--example   : tb-color(dark-gray--light);
+$g-text-color--indirect  : tb-color(dark-gray--ultra-light);
+$g-text-color--disabled  : tb-color(gray--base);
+$g-text-color--notice    : tb-color(accent-green);
+$g-text-color--warning   : tb-color(accent-orange);
+$g-text-color--attention : tb-color(accent-red);
+
+// border-color
+$g-border-color        : tb-color(gray--dark);
+$g-border-color--light : tb-color(gray--base);
+$g-border-color--dark  : tb-color(dark-gray--ultra-light);
+
+// background-color
+$g-background-color        : tb-color(gray--extra-light);
+$g-background-color--light : tb-color(gray--ultra-light);
+$g-background-color--dark  : tb-color(gray--light);
+$g-background-color--body  : tb-color(gray--ultra-light);
+
+// icon-color
+$g-icon-color        : tb-color(dark-gray--ultra-light);
+$g-icon-color--light : tb-color(gray--dark);
+$g-icon-color--dark  : tb-color(dark-gray--extra-light);
+
+// border-radius
+$g-border-radius--alert     : 4px;
+$g-border-radius--btn       : 3px;
+$g-border-radius--badge     : 3px;
+$g-border-radius--heading   : 4px;
+$g-border-radius--label     : 2px;
+$g-border-radius--list      : 5px;
+$g-border-radius--navbtn    : 4px;
+$g-border-radius--panel     : 5px;
+$g-border-radius--select    : 4px;
+$g-border-radius--stepbar   : 3px;
+$g-border-radius--textfield : 4px;
+$g-border-radius--tooltip   : 2px;
+
+// font-family
+$g-font-family-ja  : 'メイリオ', 'Meiryo', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$g-font-family-num : Arial, sans-serif;
+
+// component
+$g-oc-loader : (
+  loader-size           : 70px,
+  symbol-size           : 6px,
+  logo-size             : 40px,
+  symbol-color          : lighten(tb-color(dark-gray--base), 10%),
+  logo-color            : rgba(tb-color(dark-gray--base), 0.85),
+  symbol-num            : 12,
+  
+  l--loader-size        : 100px,
+  l--symbol-size        : 8px,
+  l--logo-size          : 60px,
+  
+  s--loader-size        : 50px,
+  s--symbol-size        : 5px,
+  s--logo-size          : 30px,
+  
+  xs--loader-size       : 20px,
+  xs--symbol-size       : 4px,
+  xs--logo-size         : 0,
+  
+  inverse--symbol-color : tb-color(white),
+  inverse--logo-color   : rgba(tb-color(white), 0.85),
+);
+
+
+/*doc
+---
+title    : $g-oc-colors
+parent   : _02_variables
+name     : _02_02_colors
+category : index
+---
+
+`$g-oc-colors` に、map で 色を設定。  
+色見本値を元に Sass のカラーコントロール機能（※）で調整を行なっている。  
+※明度の調節（`lighten` / `darken`）、彩度の調節（`saturate` / `desaturate`）  
+カラーコントロールのプレビューに便利なサイト：[Sass Color Generator](http://scg.ar-ch.org/)
+
+<div class="sg-variables sg-variables--full"></div>
+
+| 変数名                                       | 値                                 | 元の値（色見本値）                    | 説明           |
+| :------------------------------------------- | :--------------------------------- | :------------------------------------ | :------------- |
+| `map-get($g-oc-colors, default--base)`       | { sg-color : default--base }       | { sg-color : dark-gray--extra-light } | default 基本色 |
+| `map-get($g-oc-colors, default--text)`       | { sg-color : default--text }       | `$g-text-color`                       | テキスト色など |
+| `map-get($g-oc-colors, default--border)`     | { sg-color : default--border }     | `$g-border-color`                     | ボーダー色など |
+| `map-get($g-oc-colors, default--background)` | { sg-color : default--background } | `$g-background-color--light`          | 背景色など     |
+| `map-get($g-oc-colors, primary--base)`       | { sg-color : primary--base }       | { sg-color : accent-blue }            | primary 基本色 |
+| `map-get($g-oc-colors, primary--text)`       | { sg-color : primary--text }       | { sg-color : accent-blue }            | テキスト色など |
+| `map-get($g-oc-colors, primary--border)`     | { sg-color : primary--border }     | { sg-color : accent-blue }            | ボーダー色など |
+| `map-get($g-oc-colors, primary--background)` | { sg-color : primary--background } | { sg-color : accent-blue }            | 背景色など     |
+| `map-get($g-oc-colors, success--base)`       | { sg-color : success--base }       | { sg-color : accent-green }           | success 基本色 |
+| `map-get($g-oc-colors, success--text)`       | { sg-color : success--text }       | { sg-color : accent-green }           | テキスト色など |
+| `map-get($g-oc-colors, success--border)`     | { sg-color : success--border }     | { sg-color : accent-green }           | ボーダー色など |
+| `map-get($g-oc-colors, success--background)` | { sg-color : success--background } | { sg-color : accent-green }           | 背景色など     |
+| `map-get($g-oc-colors, info--base)`          | { sg-color : info--base }          | { sg-color : accent-skyblue }         | info 基本色    |
+| `map-get($g-oc-colors, info--text)`          | { sg-color : info--text }          | { sg-color : accent-skyblue }         | テキスト色など |
+| `map-get($g-oc-colors, info--border)`        | { sg-color : info--border }        | { sg-color : accent-skyblue }         | ボーダー色など |
+| `map-get($g-oc-colors, info--background)`    | { sg-color : info--background }    | { sg-color : accent-skyblue }         | 背景色など     |
+| `map-get($g-oc-colors, warning--base)`       | { sg-color : warning--base }       | { sg-color : accent-orange }          | warning 基本色 |
+| `map-get($g-oc-colors, warning--text)`       | { sg-color : warning--text }       | { sg-color : accent-orange }          | テキスト色など |
+| `map-get($g-oc-colors, warning--border)`     | { sg-color : warning--border }     | { sg-color : accent-orange }          | ボーダー色など |
+| `map-get($g-oc-colors, warning--background)` | { sg-color : warning--background } | { sg-color : accent-yellow }          | 背景色など     |
+| `map-get($g-oc-colors, danger--base)`        | { sg-color : danger--base }        | { sg-color : accent-red }             | danger 基本色  |
+| `map-get($g-oc-colors, danger--text)`        | { sg-color : danger--text }        | { sg-color : accent-red }             | テキスト色など |
+| `map-get($g-oc-colors, danger--border)`      | { sg-color : danger--border }      | { sg-color : accent-red }             | ボーダー色など |
+| `map-get($g-oc-colors, danger--background)`  | { sg-color : danger--background }  | { sg-color : accent-red }             | 背景色など     |
+| `map-get($g-oc-colors, inverse--base)`       | { sg-color : inverse--base }       | { sg-color : accent-navy }            | inverse 基本色 |
+| `map-get($g-oc-colors, inverse--text)`       | { sg-color : inverse--text }       | { sg-color : accent-navy }            | テキスト色など |
+| `map-get($g-oc-colors, inverse--border)`     | { sg-color : inverse--border }     | { sg-color : accent-navy }            | ボーダー色など |
+| `map-get($g-oc-colors, inverse--background)` | { sg-color : inverse--background } | { sg-color : accent-navy }            | 背景色など     |
+
+*/
+// ==================================================
+
+$g-oc-colors : (
+  default--base       : tb-color(dark-gray--extra-light),
+  default--text       : $g-text-color,
+  default--border     : $g-border-color,
+  default--background : $g-background-color--light,
+
+  primary--base       : tb-color(accent-blue),
+  primary--text       : saturate(darken(tb-color(accent-blue), 5%), 2%),
+  primary--border     : desaturate(lighten(tb-color(accent-blue), 18%), 20%),
+  primary--background : desaturate(lighten(tb-color(accent-blue), 54%), 22%),
+
+  success--base       : tb-color(accent-green),
+  success--text       : saturate(darken(tb-color(accent-green), 5%), 2%),
+  success--border     : desaturate(lighten(tb-color(accent-green), 16%), 10%),
+  success--background : desaturate(lighten(tb-color(accent-green), 49%), 12%),
+
+  info--base          : tb-color(accent-skyblue),
+  info--text          : saturate(darken(tb-color(accent-skyblue), 6%), 2%),
+  info--border        : desaturate(lighten(tb-color(accent-skyblue), 18%), 20%),
+  info--background    : desaturate(lighten(tb-color(accent-skyblue), 51%), 20%),
+
+  warning--base       : tb-color(accent-orange),
+  warning--text       : saturate(darken(tb-color(accent-orange), 8%), 10%),
+  warning--border     : lighten(tb-color(accent-orange), 15%),
+  warning--background : lighten(tb-color(accent-yellow), 43%),
+
+  danger--base        : tb-color(accent-red),
+  danger--text        : saturate(darken(tb-color(accent-red), 12%), 4%),
+  danger--border      : lighten(tb-color(accent-red), 13%),
+  danger--background  : lighten(tb-color(accent-red), 40%),
+
+  inverse--base       : tb-color(accent-navy),
+  inverse--text       : saturate(darken(tb-color(accent-navy), 6%), 2%),
+  inverse--border     : desaturate(lighten(tb-color(accent-navy), 22%), 25%),
+  inverse--background : desaturate(lighten(tb-color(accent-navy), 66%), 25%),
+);

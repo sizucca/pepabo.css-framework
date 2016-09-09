@@ -1,0 +1,134 @@
+/*
+---
+name     : c-badge
+category :
+  - Objects/Components
+  - Objects/Components/c-badge
+tag:
+  - badge
+---
+
+```html
+<span class="c-badge">1</span>
+<span class="c-badge c-badge--primary">2</span>
+<span class="c-badge c-badge--info">4</span>
+<span class="c-badge c-badge--danger">5</span>
+```
+
+### disabled
+
+```html
+<span class="c-badge is-disabled">1</span>
+<span class="c-badge c-badge--primary is-disabled">2</span>
+<span class="c-badge c-badge--info is-disabled">4</span>
+<span class="c-badge c-badge--danger is-disabled">5</span>
+```
+
+### circle
+
+```html
+<span class="c-badge c-badge--circle">1</span>
+<span class="c-badge c-badge--circle c-badge--primary">2</span>
+<span class="c-badge c-badge--circle c-badge--info">4</span>
+<span class="c-badge c-badge--circle c-badge--danger">5</span>
+```
+
+```html
+<span class="c-badge c-badge--circle is-disabled">1</span>
+<span class="c-badge c-badge--circle c-badge--primary is-disabled">2</span>
+<span class="c-badge c-badge--circle c-badge--info is-disabled">4</span>
+<span class="c-badge c-badge--circle c-badge--danger is-disabled">5</span>
+```
+
+*/
+
+.c-badge {
+  $background-color : map-get($g-oc-colors, default--base);
+  
+  display: inline-block;
+  border-radius: $g-border-radius--badge;
+  min-width: 1em;
+  min-height: 1em;
+  color: $g-color--white;
+  text-align: center;
+  line-height: 1;
+  background-color: $background-color;
+  
+  @include rem(padding, 3px);
+  @include rem(font-size, 11px);
+  @include box-shadow(0 0 0 1.5px $g-color--white);
+  
+  &.is-disabled {
+    background-color: rgba(desaturate($background-color, 20%), 0.2);
+  }
+  
+  // modifiers
+  $modifiers: primary, info, danger;
+  @each $modifier in $modifiers {
+    &#{&}--#{$modifier} {
+      $background-color : map-get($g-oc-colors, #{$modifier}--base);
+      
+      background-color : $background-color;
+      
+      &.is-disabled {
+        background-color: rgba(desaturate($background-color, 20%), 0.2);
+      }
+    }
+  }
+  
+  // modifier(circle)
+  &#{&}--circle {
+    @include rem(border-radius, 12px);
+  }
+}
+
+
+// ==================================================
+// ■ 以下、移行時の互換用（置き換えたら消す）
+// ==================================================
+.badge {
+  display: inline-block;
+  padding: 3px;
+  border: 1px solid #ffffff;
+  border-radius: 3px;
+  min-width: 1em;
+  min-height: 1em;
+  color: #ffffff;
+  font-size: 92%;
+  text-align: center;
+  line-height: 1;
+  background-color: #999d9f;
+}
+.badge.is-disabled {
+  color: #ffffff;
+  background-color: #ebebec;
+}
+/* --modifier (style)
+============================== */
+/* badge--circle */
+.badge--circle {
+  border-radius: 12px;
+}
+/* --modifier (color)
+============================== */
+/* badge--primary */
+.badge--primary {
+  background-color: #2a65a0;
+}
+.badge--primary.is-disabled {
+  background-color: #cbd6e3;
+}
+/* badge--info */
+.badge--info {
+  background-color: #1d9fbf;
+}
+.badge--info.is-disabled {
+  background-color: #c9e3ea;
+}
+/* badge--emphasis */
+.badge--emphasis {
+  background-color: #e64939;
+}
+.badge--emphasis.is-disabled {
+  background-color: #f3d3d0;
+}

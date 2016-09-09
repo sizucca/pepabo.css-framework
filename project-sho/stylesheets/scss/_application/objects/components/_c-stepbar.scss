@@ -1,0 +1,186 @@
+/*
+---
+name     : c-stepbar
+category :
+  - Objects/Components
+  - Objects/Components/c-stepbar
+---
+
+現在地は `c-stepbar__item` に `is-current` を付与。
+
+```html
+<ol class="c-stepbar">
+  <li class="c-stepbar__item is-current">
+    手順 1
+  </li>
+  <li class="c-stepbar__item">
+    手順 2
+  </li>
+  <li class="c-stepbar__item">
+    手順 3
+  </li>
+  <li class="c-stepbar__item">
+    手順 4
+  </li>
+</ol>
+```
+
+*/
+.c-stepbar {
+  $arrow-width: 20px;
+  $arrow-height: 15px;
+  
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  
+  &__item {
+    display: table-cell;
+    color: $g-text-color--indirect;
+    letter-spacing: 0.1em;
+    text-align: center;
+    background-color: $g-background-color--dark;
+    
+    @include rem(padding, 0 10px 0 (10px + $arrow-width));
+    @include rem(height, ($arrow-height * 2));
+    @include rem(line-height, ($arrow-height * 2));
+    
+    &:after {
+      display: block;
+      margin-left: auto;
+      border-right: 2px solid $g-color--white;
+      content: '';
+      background-color: inherit;
+      
+      @include rem(margin-top, (-$arrow-height));
+      @include rem(margin-right, (-$arrow-width));
+      @include rem(width, $arrow-width);
+      @include rem(height, $arrow-height);
+      @include transform(skew(-35deg));
+    }
+    &:before {
+      display: block;
+      margin-left: auto;
+      border-right: 2px solid $g-color--white;
+      content: '';
+      background-color: inherit;
+      
+      @include rem(margin-right, (-$arrow-width));
+      @include rem(margin-bottom, (-$arrow-height));
+      @include rem(width, $arrow-width);
+      @include rem(height, $arrow-height);
+      @include transform(skew(35deg));
+    }
+    
+    &:first-child {
+      border-top-left-radius: $g-border-radius--stepbar;
+      border-bottom-left-radius: $g-border-radius--stepbar;
+      
+      @include rem(padding-left, $arrow-width);
+    }
+    &:last-child {
+      border-top-right-radius: $g-border-radius--stepbar;
+      border-bottom-right-radius: $g-border-radius--stepbar;
+      &:before {
+        display: none;
+      }
+      &:after {
+        display: none;
+      }
+    }
+    
+    &.is-current {
+      color: $g-color--white;
+      background: $g-key-color;
+    }
+  }
+}
+
+
+
+// ==================================================
+// ■ 以下、移行時の互換用（置き換えたら消す）
+// ==================================================
+.stepbar__item {
+  display: inline-block;
+  padding: 0 20px;
+  height: 28px;
+  color: #adb1b2;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  line-height: 28px;
+  background: #f1f1f1;
+}
+@media(min-width: 1px) {
+  .stepbar__item {
+    padding: 0 14px 0 28px;
+  }
+}
+.stepbar__item::after {
+  display: block;
+  position: relative;
+  margin-top: -14px;
+  margin-right: -22px;
+  margin-left: auto;
+  border-right: 1px solid #ffffff;
+  width: 20px;
+  height: 14px;
+  content: " ";
+  -webkit-transform: skew(-30deg);
+  -moz-transform: skew(-30deg);
+  -ms-transform: skew(-30deg);
+  -o-transform: skew(-30deg);
+  transform: skew(-30deg);
+  background: #f1f1f1;
+}
+.stepbar__item::before {
+  display: block;
+  float: right;
+  margin-right: -22px;
+  margin-bottom: -14px;
+  margin-left: auto;
+  border-right: 1px solid white;
+  width: 20px;
+  height: 14px;
+  content: " ";
+  -webkit-transform: skew(30deg);
+  -moz-transform: skew(30deg);
+  -ms-transform: skew(30deg);
+  -o-transform: skew(30deg);
+  transform: skew(30deg);
+  background: #f1f1f1;
+}
+.stepbar__item:first-child {
+  padding-left: 20px;
+  border-radius: 3px 0 0 3px;
+}
+.stepbar__item:last-child {
+  padding-right: 20px;
+  border-radius: 0 3px 3px 0;
+}
+.stepbar__item:last-child::before {
+  border: 0;
+  background: transparent;
+}
+.stepbar__item:last-child::after {
+  border: 0;
+  background: transparent;
+}
+.stepbar__item.is-current {
+  color: #ffffff;
+  background: #273c5c;
+}
+.stepbar__item.is-current::before {
+  background: #273c5c;
+}
+.stepbar__item.is-current::after {
+  background: #273c5c;
+}
+.stepbar__item.is-current:last-child::before {
+  border: 0;
+  background: transparent;
+}
+.stepbar__item.is-current:last-child::after {
+  border: 0;
+  background: transparent;
+}
