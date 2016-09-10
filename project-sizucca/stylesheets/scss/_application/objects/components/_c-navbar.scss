@@ -1,0 +1,197 @@
+/*
+---
+name     : c-navbar
+category :
+  - Objects/Components
+  - Objects/Components/c-navbar
+---
+
+選択中のナビには `c-navbar__item` に `is-active` を付与。  
+非活性のナビには `c-navbar__item` に `is-disabled` を付与。  
+
+```html
+<ul class="c-navbar">
+  <li class="c-navbar__item is-active">
+    <a class="c-navbar__target" href="#">ナビ項目</a>
+  </li>
+  <li class="c-navbar__item">
+    <a class="c-navbar__target" href="#">ナビ項目</a>
+  </li>
+  <li class="c-navbar__item">
+    <a class="c-navbar__target" href="#">ナビ項目</a>
+  </li>
+  <li class="c-navbar__item">
+    <a class="c-navbar__target is-idle" href="#">ナビ項目</a>
+  </li>
+  <li class="c-navbar__item is-disabled">
+    <span class="c-navbar__target">ナビ項目</span>
+  </li>
+  <li class="c-navbar__item c-navbar__item--dropdown">
+    <a class="c-navbar__target" href="#">ナビ項目</a>
+    <div class="c-navbar__dropdown-wrapper">
+      <ul class="c-navbar__dropdown">
+        <li class="c-navbar__item">
+          <a class="c-navbar__target" href="#">サブナビ項目</a>
+        </li>
+        <li class="c-navbar__item">
+          <a class="c-navbar__target" href="#">サブナビ項目</a>
+        </li>
+        <li class="c-navbar__item is-disabled">
+          <span class="c-navbar__target">サブナビ項目</span>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <li class="c-navbar__item c-navbar__item--dropdown is-active">
+    <a class="c-navbar__target" href="#">ナビ項目</a>
+    <div class="c-navbar__dropdown-wrapper">
+      <ul class="c-navbar__dropdown">
+        <li class="c-navbar__item">
+          <a class="c-navbar__target" href="#">サブナビ項目</a>
+        </li>
+        <li class="c-navbar__item is-active">
+          <a class="c-navbar__target" href="#">サブナビ項目</a>
+        </li>
+        <li class="c-navbar__item is-disabled">
+          <span class="c-navbar__target">サブナビ項目</span>
+        </li>
+      </ul>
+    </div>
+  </li>
+</ul>
+```
+
+*/
+.c-navbar {
+  $this: &;
+  
+  display: table;
+  padding: 0 20px;
+  border-top: 1px solid $g-border-color;
+  border-bottom: 1px solid $g-border-color;
+  width: 100%;
+  table-layout: fixed;
+  background-color: $g-background-color--light;
+
+  @include box-sizing(border-box);
+  
+  &__item {
+    display: table-cell;
+    border-right: 1px solid $g-border-color;
+    cursor: pointer;
+    color: $g-text-color;
+    line-height: 1.4;
+    vertical-align: bottom;
+    background-color: $g-background-color--light;
+    
+    &:first-child {
+      border-left: 1px solid $g-border-color;
+    }
+    &:hover {
+      background-color: lighten($g-background-color--light, 2%);
+    }
+    &.is-active.is-active {
+      cursor: default;
+      color: $g-text-color--title;
+      background-color: $g-color--white;
+    }
+    &.is-disabled.is-disabled.is-disabled {
+      cursor: default;
+      color: $g-text-color--disabled;
+      background-color: $g-background-color--light;
+    }
+    
+    #{$this}__dropdown & {
+      display: block;
+      border: none;
+      border-top: 1px dotted $g-border-color;
+      background-color: lighten($g-background-color--light, 2%);
+      &:hover {
+        background-color: lighten($g-background-color--light, 4%);
+      }
+    }
+  }
+  &__target {
+    position: relative;
+    display: block;
+    cursor: inherit;
+    overflow: hidden;
+    color: inherit;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    @include rem(padding, 10px 2px);
+    
+    &:hover {
+      color: inherit;
+    }
+    &.is-idle:before {
+      display: inline-block;
+      margin-right: 0.2em;
+      line-height: 1;
+      color: $g-text-color--attention;
+      @include glyph(tabelog, block);
+    }
+    
+    #{$this}__item.is-active > & {
+      margin-bottom: -1px;
+      font-weight: bold;
+      border-bottom: 1px solid $g-color--white;
+      
+      #{$this}__dropdown & {
+        margin-bottom: 0;
+        border-bottom: none;
+      }
+    }
+    
+    #{$this}__item#{$this}__item--dropdown > & {
+      @include rem(padding-right, 16px);
+      &:after {
+        position: absolute;
+        top: 50%;
+        z-index: 2;
+        cursor: inherit;
+        margin-top: -0.5em;
+        width: 1em;
+        height: 1em;
+        color: $g-icon-color--dark;
+        line-height: 1;
+        @include rem(right, 6px);
+        @include rem(font-size, 14px);
+        @include glyph(tabelog, arrowdown);
+        @include transition(0.2s ease);
+      }
+    }
+    #{$this}__item#{$this}__item--dropdown:hover & {
+      &:after {
+        color: $g-icon-color;
+        @include transform(rotate(-180deg));
+      }
+    }
+  }
+  
+  &__dropdown-wrapper {
+    display: block;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    @include transition(0.2s ease);
+    
+    #{$this}__item#{$this}__item--dropdown:hover & {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  &__dropdown {
+    display: block;
+    position: absolute;
+    left: -1px;
+    right: -1px;
+    border-right: 1px solid $g-border-color;
+    border-bottom: 1px solid $g-border-color;
+    border-left: 1px solid $g-border-color;
+  }
+}
