@@ -1,0 +1,26 @@
+// ==================================================
+// Colors
+// ==================================================
+
+// color-palettes
+// ==================================================
+$g-color-palettes : (
+  accent: (
+    base  : #4a7b9c,
+    light : desaturate(lighten(#4a7b9c, 50%), 50%),
+    dark  : #34495e,
+  ),
+);
+
+// color
+// ==================================================
+$g-color-white : #fff;
+$g-color-black : #000;
+
+$g-link-color  : #4078c0;
+$g-hover-color : pe-color(accent);
+$g-text-color  : pe-color(accent, dark);
+$g-key-color   : pe-color(accent);
+
+$g-body-bg-color : $g-color-white;
+

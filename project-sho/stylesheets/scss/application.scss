@@ -1,0 +1,81 @@
+@charset "utf-8";
+@import "_core/_core";
+@import "_config/_config";
+
+/*
+---
+name: Project-SHO
+framework:
+  - Project-SHO
+---
+
+Project-SHO is @sho CSS Framework.
+
+（このフレームワークに関する思いの丈を書く）
+
+*/
+
+/*
+---
+name: Foundation
+framework:
+  - Project-SHO/Foundation
+---
+
+Foundation 関連の注意事項とか（あればここに書く）
+
+*/
+@import "application/foundation/_base";
+@import "application/foundation/_preset";
+
+/*
+---
+name: Layouts
+framework:
+  - Project-SHO/Layouts
+---
+
+Layouts 関連の注意事項とか（あればここに書く）
+
+*/
+// @import "application/layouts/_l-container";
+// @import "application/layouts/_l-contents";
+
+/*
+---
+name: Objects
+framework:
+  - Project-SHO/Objects
+---
+
+Objects 関連の注意事項とか（あればここに書く）
+
+*/
+
+/*
+---
+name: Components
+framework:
+  - Project-SHO/Objects/Components
+---
+*/
+@import "application/objects/components/_c-btn";
+
+/*
+---
+name: Projects
+framework:
+  - Project-SHO/Objects/Projects
+---
+*/
+// @import "application/objects/projects/_p-global-header";
+
+/*
+---
+name: Utilities
+framework:
+  - Project-SHO/Objects/Utilities
+---
+*/
+@import "application/objects/utilities/_u-clearfix";
+

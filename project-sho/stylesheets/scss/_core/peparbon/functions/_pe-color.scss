@@ -1,0 +1,31 @@
+/*
+---
+name: pe-color()
+library:
+  - Peparbon/Functions
+  - Peparbon/Functions/pe-color()
+---
+
+| 引数          | 初期値 | 値                               | 備考  |
+| :------------ | :----- | :------------------------------- | :---- |
+| `$color-name` | なし   | `$g-color-palettes` に設定したカラー名 | -     |
+
+* `$g-color-palettes` に設定したカラー名に対応するカラーコード（16 進数）を返す。
+* 各プロジェクトのグローバル変数定義 `_config/_variables.scss` でのみ使用可能。
+
+```scss
+@function pe-color($color-name, $color-tone: base) {
+  ...
+}
+```
+
+```scss
+$g-bg-color: pe-color(white);
+```
+
+*/
+/// @require {variable} $g-color-palettes
+
+@function pe-color($color-name, $color-tone: base) {
+  @return map-get(map-get($g-color-palettes, $color-name), $color-tone);
+}

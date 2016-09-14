@@ -1,0 +1,41 @@
+/*
+---
+name: pe-filter()
+library:
+  - Peparbon/CSS3
+  - Peparbon/CSS3/pe-filter()
+---
+
+| IE    | Chrome | Firefox | Safari | Opera  | iOS   | Android | Can I use                                                  |
+| :---: | :----: | :-----: | :----: | :----: | :---: | :-----: | :--------------------------------------------------------- |
+| `13`  | `18`   | `3.6`   | `6`    | `15`   | `6.1` | `4.4`   | [CSS Filter Effects](http://caniuse.com/#feat=css-filters) |
+
+| @mixin 名                  | @mixin 引数値              | 備考 |
+| :------------------------- | :------------------------- | :--- |
+| `CSS プロパティ名` と 同じ | `CSS プロパティ値` と 同じ | -    |
+
+```scss
+@mixin pe-filter($function: none) {
+  ...
+}
+```
+
+```scss
+.class-name {
+  @include pe-filter(blur(5px));
+}
+```
+
+```css
+.class-name {
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+}
+```
+
+*/
+// ==================================================
+
+@mixin pe-filter($function: none) {
+  @include _pe-prefixer(filter, $function, webkit spec);
+}

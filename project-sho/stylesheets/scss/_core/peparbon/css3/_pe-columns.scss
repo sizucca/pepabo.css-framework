@@ -1,0 +1,112 @@
+/*
+---
+name: pe-columns()
+library:
+  - Peparbon/CSS3
+  - Peparbon/CSS3/pe-columns()
+---
+
+| IE    | Chrome | Firefox | Safari | Opera  | iOS   | Android | Can I use                                                           |
+| :---: | :----: | :-----: | :----: | :----: | :---: | :-----: | :------------------------------------------------------------------ |
+| `10`  | `OK`   | `OK`    | `3.1`  | `15`   | `3.2` | `2.1`   | [CSS3 Multiple column layout](http://caniuse.com/#feat=multicolumn) |
+
+| @mixin 名                  | @mixin 引数値              | 備考 |
+| :------------------------- | :------------------------- | :--- |
+| `CSS プロパティ名` と 同じ | `CSS プロパティ値` と 同じ | -    |
+
+```scss
+@mixin pe-columns($arg: auto) {
+  ...
+}
+@mixin pe-column-count($int: auto) {
+  ...
+}
+@mixin pe-column-gap($length: normal) {
+  ...
+}
+@mixin pe-column-fill($arg: auto) {
+  ...
+}
+@mixin pe-column-rule($arg) {
+  ...
+}
+@mixin pe-column-rule-color($color) {
+  ...
+}
+@mixin pe-column-rule-style($style: none) {
+  ...
+}
+@mixin pe-column-rule-width ($width: none) {
+  ...
+}
+@mixin pe-column-span($arg: none) {
+  ...
+}
+@mixin pe-column-width($length: auto) {
+  ...
+}
+```
+
+```scss
+.class-name {
+  @include pe-columns(250px auto);
+}
+```
+
+```css
+.class-name {
+  -webkit-columns: 250px auto;
+  -moz-columns: 250px auto;
+  columns: 250px auto;
+}
+```
+
+*/
+
+@mixin pe-columns($arg: auto) {
+  // <column-count> || <column-width>
+  @include _pe-prefixer(columns, $arg, webkit moz spec);
+}
+
+@mixin pe-column-count($int: auto) {
+  // auto || integer
+  @include _pe-prefixer(column-count, $int, webkit moz spec);
+}
+
+@mixin pe-column-gap($length: normal) {
+  // normal || length
+  @include _pe-prefixer(column-gap, $length, webkit moz spec);
+}
+
+@mixin pe-column-fill($arg: auto) {
+  // auto || length
+  @include _pe-prefixer(column-fill, $arg, webkit moz spec);
+}
+
+@mixin pe-column-rule($arg) {
+  // <border-width> || <border-style> || <color>
+  @include _pe-prefixer(column-rule, $arg, webkit moz spec);
+}
+
+@mixin pe-column-rule-color($color) {
+  @include _pe-prefixer(column-rule-color, $color, webkit moz spec);
+}
+
+@mixin pe-column-rule-style($style: none) {
+  // none | hidden | dashed | dotted | double | groove | inset | inset | outset | ridge | solid
+  @include _pe-prefixer(column-rule-style, $style, webkit moz spec);
+}
+
+@mixin pe-column-rule-width($width: none) {
+  @include _pe-prefixer(column-rule-width, $width, webkit moz spec);
+}
+
+@mixin pe-column-span($arg: none) {
+  // none || all
+  @include _pe-prefixer(column-span, $arg, webkit moz spec);
+}
+
+@mixin pe-column-width($length: auto) {
+  // auto || length
+  @include _pe-prefixer(column-width, $length, webkit moz spec);
+}

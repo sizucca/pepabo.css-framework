@@ -1,0 +1,23 @@
+// ==================================================
+// preset
+// ==================================================
+html {
+  font-size: pe-root-font-size();
+}
+body {
+  color: $g-text-color;
+  font-family: $g-font-family-ja;
+  line-height: 1.4;
+  background-color: $g-body-bg-color;
+  -webkit-text-size-adjust: 100%;
+  font-size: 1.4rem;
+}
+// link
+// ==============================
+a {
+  color: $g-link-color;
+}
+a:hover,
+a:active {
+  color: $g-hover-color;
+}
