@@ -2,31 +2,16 @@
 ---
 name: Webfonts
 framework:
-  - Project-SHO/Foundation
   - Project-SHO/Foundation/Webfonts
 ---
 
 ```html
 <ul class="pepagis-webfonts pepagis-clearfix">
-  <li class="pepagis-cwebfonts__item pepagis-webfont-default-base"></li>
-  <li class="pepagis-cwebfonts__item pepagis-webfont-default-light"></li>
-  <li class="pepagis-cwebfonts__item pepagis-webfont-default-dark"></li>
-
-  <li class="pepagis-cwebfonts__item pepagis-webfont-success-base"></li>
-  <li class="pepagis-cwebfonts__item pepagis-webfont-success-light"></li>
-  <li class="pepagis-cwebfonts__item pepagis-webfont-success-dark"></li>
-
-  <li class="pepagis-cwebfonts__item pepagis-webfont-info-base"></li>
-  <li class="pepagis-cwebfonts__item pepagis-webfont-info-light"></li>
-  <li class="pepagis-cwebfonts__item pepagis-webfont-info-dark"></li>
-
-  <li class="pepagis-cwebfonts__item pepagis-webfont-warning-base"></li>
-  <li class="pepagis-cwebfonts__item pepagis-webfont-warning-light"></li>
-  <li class="pepagis-cwebfonts__item pepagis-webfont-warning-dark"></li>
-
-  <li class="pepagis-cwebfonts__item pepagis-webfont-danger-base"></li>
-  <li class="pepagis-cwebfonts__item pepagis-webfont-danger-light"></li>
-  <li class="pepagis-cwebfonts__item pepagis-webfont-danger-dark"></li>
+  <li class="agly-b-glass"></li>
+  <li class="agly-b-music"></li>
+  <li class="agly-b-search"></li>
+  <li class="agly-b-envelope-o"></li>
+  <li class="agly-b-heart"></li>
 </ul>
 ```
 

@@ -2,37 +2,33 @@
 ---
 name: Colors
 framework:
-  - Project-SHO/Foundation
   - Project-SHO/Foundation/Colors
+template: color
 ---
 
-```html
-<ul class="pepagis-colors pepagis-clearfix">
-  <li class="pepagis-colors__item pepagis-color-default-base"></li>
-  <li class="pepagis-colors__item pepagis-color-default-light"></li>
-  <li class="pepagis-colors__item pepagis-color-default-dark"></li>
+pe-color(default, base);
+pe-color(default, light);
+pe-color(default, dark);
 
-  <li class="pepagis-colors__item pepagis-color-success-base"></li>
-  <li class="pepagis-colors__item pepagis-color-success-light"></li>
-  <li class="pepagis-colors__item pepagis-color-success-dark"></li>
+pe-color(success, base);
+pe-color(success, light);
+pe-color(success, dark);
 
-  <li class="pepagis-colors__item pepagis-color-info-base"></li>
-  <li class="pepagis-colors__item pepagis-color-info-light"></li>
-  <li class="pepagis-colors__item pepagis-color-info-dark"></li>
+pe-color(info, base);
+pe-color(info, light);
+pe-color(info, dark);
 
-  <li class="pepagis-colors__item pepagis-color-warning-base"></li>
-  <li class="pepagis-colors__item pepagis-color-warning-light"></li>
-  <li class="pepagis-colors__item pepagis-color-warning-dark"></li>
+pe-color(warning, base);
+pe-color(warning, light);
+pe-color(warning, dark);
 
-  <li class="pepagis-colors__item pepagis-color-danger-base"></li>
-  <li class="pepagis-colors__item pepagis-color-danger-light"></li>
-  <li class="pepagis-colors__item pepagis-color-danger-dark"></li>
+pe-color(danger, base);
+pe-color(danger, light);
+pe-color(danger, dark);
 
-  <li class="pepagis-colors__item pepagis-color-gray-base"></li>
-  <li class="pepagis-colors__item pepagis-color-gray-light"></li>
-  <li class="pepagis-colors__item pepagis-color-gray-dark"></li>
-</ul>
-```
+pe-color(gray, base);
+pe-color(gray, light);
+pe-color(gray, dark);
 
 */  
 
