@@ -41,10 +41,10 @@ library:
         font-family: $name;
         font-style: normal;
         font-weight: normal;
-        src: url('/assets/framework/images/webfonts/#{$file}/#{$file}.eot#iefix') format('embedded-opentype'),
-        url('/assets/framework/images/webfonts/#{$file}/#{$file}.woff') format('woff'),
-        url('/assets/framework/images/webfonts/#{$file}/#{$file}.ttf') format('truetype'),
-        url('/assets/framework/images/webfonts/#{$file}/#{$file}.svg##{$svgid}') format('svg');
+        src: url('https://sizucca.github.io/pepagis/assets/framework/images/webfonts/#{$file}/#{$file}.eot#iefix') format('embedded-opentype'),
+        url('https://sizucca.github.io/pepagis/assets/framework/images/webfonts/#{$file}/#{$file}.woff') format('woff'),
+        url('https://sizucca.github.io/pepagis/assets/framework/images/webfonts/#{$file}/#{$file}.ttf') format('truetype'),
+        url('https://sizucca.github.io/pepagis/assets/framework/images/webfonts/#{$file}/#{$file}.svg##{$svgid}') format('svg');
       }
       
       @if map-has-key($data, prefix) and map-has-key($data, glyphs) {

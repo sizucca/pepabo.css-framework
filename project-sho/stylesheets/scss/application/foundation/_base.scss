@@ -11,18 +11,3 @@
 // @include pe-glyph(awesome, name);
 
 
-
-// スタイルガイドの Web フォント数出力用
-// @each $id, $data in $g-webfonts {
-//   @if map-has-key($data, glyphs) {
-//     $glyphs: map-get($data, glyphs);
-//     $glyphs-num: length($glyphs);
-
-//     .pepagis-glys-#{$id}:after {
-//       content: "（#{$glyphs-num}）";
-//     }
-//     .pepagis-glyphs-#{$id}:after {
-//       content: "#{$glyphs-num}";
-//     }
-//   }
-// }
