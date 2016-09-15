@@ -7,29 +7,29 @@ framework:
 
 ```html
 <ul class="pepagis-colors pepagis-clearfix">
-  <li class="pepagis-colors__item u-color--default-base"></li>
-  <li class="pepagis-colors__item u-color--default-light"></li>
-  <li class="pepagis-colors__item u-color--default-dark"></li>
+  <li class="pepagis-colors__item pepagis-color-default-base"></li>
+  <li class="pepagis-colors__item pepagis-color-default-light"></li>
+  <li class="pepagis-colors__item pepagis-color-default-dark"></li>
 
-  <li class="pepagis-colors__item u-color--success-base"></li>
-  <li class="pepagis-colors__item u-color--success-light"></li>
-  <li class="pepagis-colors__item u-color--success-dark"></li>
+  <li class="pepagis-colors__item pepagis-color-success-base"></li>
+  <li class="pepagis-colors__item pepagis-color-success-light"></li>
+  <li class="pepagis-colors__item pepagis-color-success-dark"></li>
 
-  <li class="pepagis-colors__item u-color--info-base"></li>
-  <li class="pepagis-colors__item u-color--info-light"></li>
-  <li class="pepagis-colors__item u-color--info-dark"></li>
+  <li class="pepagis-colors__item pepagis-color-info-base"></li>
+  <li class="pepagis-colors__item pepagis-color-info-light"></li>
+  <li class="pepagis-colors__item pepagis-color-info-dark"></li>
 
-  <li class="pepagis-colors__item u-color--warning-base"></li>
-  <li class="pepagis-colors__item u-color--warning-light"></li>
-  <li class="pepagis-colors__item u-color--warning-dark"></li>
+  <li class="pepagis-colors__item pepagis-color-warning-base"></li>
+  <li class="pepagis-colors__item pepagis-color-warning-light"></li>
+  <li class="pepagis-colors__item pepagis-color-warning-dark"></li>
 
-  <li class="pepagis-colors__item u-color--danger-base"></li>
-  <li class="pepagis-colors__item u-color--danger-light"></li>
-  <li class="pepagis-colors__item u-color--danger-dark"></li>
+  <li class="pepagis-colors__item pepagis-color-danger-base"></li>
+  <li class="pepagis-colors__item pepagis-color-danger-light"></li>
+  <li class="pepagis-colors__item pepagis-color-danger-dark"></li>
 
-  <li class="pepagis-colors__item u-color--normal-base"></li>
-  <li class="pepagis-colors__item u-color--normal-light"></li>
-  <li class="pepagis-colors__item u-color--normal-dark"></li>
+  <li class="pepagis-colors__item pepagis-color-normal-base"></li>
+  <li class="pepagis-colors__item pepagis-color-normal-light"></li>
+  <li class="pepagis-colors__item pepagis-color-normal-dark"></li>
 </ul>
 ```
 
@@ -82,38 +82,3 @@ $g-color-palettes : (
     dark  : darken($g-danger-color, 5%),
   ),
 );
-
-@each $color-type, $color-tones in $g-color-palettes {
-  @each $color-tone, $color-code in $color-tones {
-    .u-color-- {
-      &#{$color-type}-#{$color-tone} {
-        border-left: 20px solid $color-code;
-        border-radius: 20px 0 0 20px;
-
-        // カラーコードをrgbaに変換
-        $rgba-code: rgba($color-code, 0.99);
-        
-        // rgbaを文字列に変換し、rgbを抜き出し
-        // $alpha-index: str-index('#{$rgba-code}', ', 0.99');
-        // $rgb: str-slice('#{$rgba-code}', 6, $alpha-index - 1);
-              
-        
-        &::before {
-          display: block;
-          padding: 8px 10px;
-          // color: $color-code;
-          border-bottom: 1px solid $color-code;
-          content: "pe-color(#{$color-type}, #{$color-tone})";
-        }
-        &::after {
-          padding: 8px 10px;
-          display: block;
-          color: $color-code;
-          content: "#{$color-code} (#{$rgba-code})";
-        }
-      }
-    }
-  }
-}
-
-

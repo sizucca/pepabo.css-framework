@@ -1,0 +1,32 @@
+// ==================================================
+// pepagis-helper
+// ==================================================
+@mixin pepagis-colors($color-palettes) {
+  @each $color-type, $color-tones in $color-palettes {
+    @each $color-tone, $color-code in $color-tones {
+      
+      // カラーコードをrgbaに変換
+      $rgba-code: rgba($color-code, 0.5);
+      
+      .pepagis-color- {
+        &#{$color-type}-#{$color-tone} {
+          border-left: 20px solid $color-code;
+          border-radius: 20px 0 0 20px;
+          
+          &::before {
+            display: block;
+            padding: 8px 10px;
+            border-bottom: 1px solid $color-code;
+            content: "pe-color(#{$color-type}, #{$color-tone})";
+          }
+          &::after {
+            padding: 8px 10px;
+            display: block;
+            color: $color-code;
+            content: "#{$color-code} #{$rgba-code}";
+          }
+        }
+      }
+    }
+  }
+}

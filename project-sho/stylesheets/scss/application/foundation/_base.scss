@@ -2,3 +2,5 @@
 // base
 // ==================================================
 @include pe-base(reset);
+@include pepagis-colors($g-color-palettes);
+// @include pepagis-webfonts($g-webfonts);
