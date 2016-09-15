@@ -52,17 +52,33 @@ framework:
   // modifiers
   &.c-btn--primary {
     background-color: $btn-bg-primary-color;
+    &:hover {
+      background-color: lighten($btn-bg-primary-color, 10%);
+    }
   }
   &.c-btn--success {
     background-color: $btn-bg-success-color;
+    &:hover {
+      background-color: lighten($btn-bg-success-color, 10%);
+    }
   }
   &.c-btn--info {
     background-color: $btn-bg-info-color;
+    &:hover {
+      background-color: lighten($btn-bg-info-color, 10%);
+    }
   }
   &.c-btn--warning {
     background-color: $btn-bg-warning-color;
+    &:hover {
+      background-color: lighten($btn-bg-warning-color, 10%);
+    }
   }
   &.c-btn--danger {
     background-color: $btn-bg-danger-color;
+    &:hover {
+      background-color: lighten($btn-bg-danger-color, 10%);
+    }
   }
 }
+
