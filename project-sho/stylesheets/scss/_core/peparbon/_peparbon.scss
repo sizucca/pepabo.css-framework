@@ -5,11 +5,12 @@ library:
   - Peparbon
 ---
 
-Peparbon is Pepagis mixin library for Sass.
+Peparbon is Pepagis mixin library for Sass.  
 Source: https://github.com/thoughtbot/bourbon
 
 ### ライブラリ構成
 
+```
 _core/
 ├── peparbon/
 │   ├── functions/
@@ -79,7 +80,7 @@ library:
 @import "functions/_pe-ceil-decimal";
 @import "functions/_pe-color";
 @import "functions/_pe-root-font-size";
-@import "functions/_pe-webfont";
+// @import "functions/_pe-webfont";
 
 /*
 ---

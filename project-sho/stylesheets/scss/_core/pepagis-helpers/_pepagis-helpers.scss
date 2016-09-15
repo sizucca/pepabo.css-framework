@@ -1,36 +1,23 @@
 // ==================================================
 // pepagis-helper
 // ==================================================
-@mixin pepagis-colors($color-palettes) {
-  @each $color-type, $color-tones in $color-palettes {
-    @each $color-tone, $color-code in $color-tones {
+@import "_pepagis-colors";
+
+@mixin pe-glyph($webfont-id, $glyph-name) {
+  @each $id, $data in $g-webfonts {
+    @if $id == $webfont-id {
+      $name       : map-get($data, name);
+      $glyphs     : map-get($data, glyphs);
+      $glyph-code : map-get($glyphs, $glyph-name);
       
-      // カラーコードをrgbaに変換
-      $rgba-code: rgba($color-code, 0.5);
-      
-      .pepagis-color- {
-        &#{$color-type}-#{$color-tone} {
-          border-left: 20px solid $color-code;
-          border-radius: 20px 0 0 20px;
-          
-          &::before {
-            display: block;
-            padding: 8px 10px;
-            border-bottom: 1px solid $color-code;
-            content: "pe-color(#{$color-type}, #{$color-tone})";
-          }
-          &::after {
-            padding: 8px 10px;
-            display: block;
-            color: $color-code;
-            content: "#{$color-code} #{$rgba-code}";
-          }
-        }
-      }
+      font-family: $name;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      -webkit-font-smoothing: antialiased;
+      text-transform: none;
+      speak: none;
+      content: #{'"' + '\\' + $glyph-code + '"'};
     }
   }
-}
-
-@mixin pepagis-webfonts($color-palettes) {
-
 }

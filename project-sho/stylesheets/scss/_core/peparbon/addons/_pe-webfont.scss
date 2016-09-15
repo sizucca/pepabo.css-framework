@@ -41,45 +41,45 @@ library:
         font-family: $name;
         font-style: normal;
         font-weight: normal;
-        src: url('/webfonts/#{$file}/#{$file}.eot#iefix') format('embedded-opentype'),
-        url('/webfonts/#{$file}/#{$file}.woff') format('woff'),
-        url('/webfonts/#{$file}/#{$file}.ttf') format('truetype'),
-        url('/webfonts/#{$file}/#{$file}.svg##{$svgid}') format('svg');
+        src: url('/assets/framework/images/webfonts/#{$file}/#{$file}.eot#iefix') format('embedded-opentype'),
+        url('/assets/framework/images/webfonts/#{$file}/#{$file}.woff') format('woff'),
+        url('/assets/framework/images/webfonts/#{$file}/#{$file}.ttf') format('truetype'),
+        url('/assets/framework/images/webfonts/#{$file}/#{$file}.svg##{$svgid}') format('svg');
       }
       
-      // @if map-has-key($data, prefix) and map-has-key($data, glyphs) {
-      //   $prefix : map-get($data, prefix);
-      //   $glyphs : map-get($data, glyphs);
+      @if map-has-key($data, prefix) and map-has-key($data, glyphs) {
+        $prefix : map-get($data, prefix);
+        $glyphs : map-get($data, glyphs);
 
-      //   [class^="#{$prefix}b-"]:before,
-      //   [class*=" #{$prefix}b-"]:before {
-      //     font-family: $name;
-      //     font-style: normal;
-      //     font-weight: normal;
-      //     font-variant: normal;
-      //     -webkit-font-smoothing: antialiased;
-      //     text-transform: none;
-      //     speak: none;
-      //   }
+        [class^="#{$prefix}b-"]:before,
+        [class*=" #{$prefix}b-"]:before {
+          font-family: $name;
+          font-style: normal;
+          font-weight: normal;
+          font-variant: normal;
+          -webkit-font-smoothing: antialiased;
+          text-transform: none;
+          speak: none;
+        }
         
-      //   [class^="#{$prefix}a-"]:after,
-      //   [class*=" #{$prefix}a-"]:after {
-      //     font-family: $name;
-      //     font-style: normal;
-      //     font-weight: normal;
-      //     font-variant: normal;
-      //     -webkit-font-smoothing: antialiased;
-      //     text-transform: none;
-      //     speak: none;
-      //   }
+        [class^="#{$prefix}a-"]:after,
+        [class*=" #{$prefix}a-"]:after {
+          font-family: $name;
+          font-style: normal;
+          font-weight: normal;
+          font-variant: normal;
+          -webkit-font-smoothing: antialiased;
+          text-transform: none;
+          speak: none;
+        }
         
-      //   @each $glyph-name, $glyph-code in $glyphs {
-      //     .#{$prefix}b-#{$glyph-name}:before,
-      //     .#{$prefix}a-#{$glyph-name}:after {
-      //       content: #{'"' + '\\' + $glyph-code + '"'};
-      //     }
-      //   }
-      // }
+        @each $glyph-name, $glyph-code in $glyphs {
+          .#{$prefix}b-#{$glyph-name}:before,
+          .#{$prefix}a-#{$glyph-name}:after {
+            content: #{'"' + '\\' + $glyph-code + '"'};
+          }
+        }
+      }
     }
   }
 }
