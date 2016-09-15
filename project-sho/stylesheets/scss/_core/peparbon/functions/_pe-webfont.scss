@@ -1,0 +1,94 @@
+/*
+---
+name: pe-webfont()
+library:
+  - Peparbon/Functions
+  - Peparbon/Functions/pe-webfont()
+---
+
+| 引数          | 初期値 | 値                                      | 備考 |
+| :------------ | :----- | :-------------------------------------- | :--- |
+| `$webfont-id` | なし   | [Web Fonts（一覧）](#_06_webfonts) 参照 | -    |
+
+* Webフォントの `@font-face` と class 指定用の class 一覧を返す。
+* 各プロジェクトの `_application/foundation/_webfont.scss` でのみ使用可能。  
+  ※プロジェクト作成時に初期設定で使用するくらいで、通常使用することはない。
+
+```scss
+@mixin pe-webfont($webfont-id) {
+  ...
+}
+```
+
+```scss:
+@include pe-webfont(webfont-name);
+```
+
+```css
+@font-face {
+  font-family: "Webfont Name";
+  font-style: normal;
+  font-weight: normal;
+  src: url
+  （長いので）省略
+}
+```
+
+*/
+// ==================================================
+/// @require {variable} $g-webfonts
+
+@mixin pe-webfont($webfont-id) {
+  
+  @each $id, $data in $g-webfonts {
+    @if $id == $webfont-id {
+      $name  : map-get($data, name);
+      $file  : map-get($data, file);
+      $svgid : map-get($data, svgid);
+      
+      @font-face {
+        font-family: $name;
+        font-style: normal;
+        font-weight: normal;
+        src: url("/webfonts/#{$file}/#{$file}.eot#iefix") format("embedded-opentype"),
+        url("/webfonts/#{$file}/#{$file}.woff") format("woff"),
+        url("/webfonts/#{$file}/#{$file}.ttf") format("truetype"),
+        url("/webfonts/#{$file}/#{$file}.svg##{$svgid}") format("svg");
+      }
+      
+      @if map-has-key($data, prefix) and map-has-key($data, glyphs) {
+        $prefix : map-get($data, prefix);
+        $glyphs : map-get($data, glyphs);
+
+        [class^="#{$prefix}b-"]:before,
+        [class*=" #{$prefix}b-"]:before {
+          font-family: $name;
+          font-style: normal;
+          font-weight: normal;
+          font-variant: normal;
+          -webkit-font-smoothing: antialiased;
+          text-transform: none;
+          speak: none;
+        }
+        
+        [class^="#{$prefix}a-"]:after,
+        [class*=" #{$prefix}a-"]:after {
+          font-family: $name;
+          font-style: normal;
+          font-weight: normal;
+          font-variant: normal;
+          -webkit-font-smoothing: antialiased;
+          text-transform: none;
+          speak: none;
+        }
+        
+        @each $glyph-name, $glyph-code in $glyphs {
+          .#{$prefix}b-#{$glyph-name}:before,
+          .#{$prefix}a-#{$glyph-name}:after {
+            content: #{'"' + '\\' + $glyph-code + '"'};
+          }
+        }
+      }
+    }
+  }
+}
