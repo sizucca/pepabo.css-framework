@@ -26,16 +26,12 @@ framework:
   <li class="pepagis-colors__item pepagis-color-danger-base"></li>
   <li class="pepagis-colors__item pepagis-color-danger-light"></li>
   <li class="pepagis-colors__item pepagis-color-danger-dark"></li>
-
-  <li class="pepagis-colors__item pepagis-color-normal-base"></li>
-  <li class="pepagis-colors__item pepagis-color-normal-light"></li>
-  <li class="pepagis-colors__item pepagis-color-normal-dark"></li>
 </ul>
 ```
 
 */  
 
-// color
+// key-color
 // ==================================================
 $g-color-white : #fff;
 $g-color-black : #343e45;
@@ -45,13 +41,6 @@ $g-success-color : #56bda3;
 $g-info-color    : #4ab8bd;
 $g-warning-color : #f2c056;
 $g-danger-color  : #f25670;
-
-$g-link-color  : #4ab8bd;
-$g-hover-color : pe-color(default);
-$g-text-color  : pe-color(default, dark);
-$g-key-color   : pe-color(default);
-
-$g-body-bg-color : $g-color-white;
 
 // color-palettes
 // ==================================================
@@ -82,3 +71,14 @@ $g-color-palettes : (
     dark  : darken($g-danger-color, 5%),
   ),
 );
+
+// color
+// ==================================================
+
+$g-link-color  : #4ab8bd;
+$g-hover-color : pe-color(default);
+$g-text-color  : pe-color(default, dark);
+$g-key-color   : pe-color(default);
+
+$g-body-bg-color : $g-color-white;
+
