@@ -1,0 +1,38 @@
+/*
+---
+name: c-alert
+framework:
+  - Project-SHO/Objects/Components
+  - Project-SHO/Objects/Components/c-alert
+---
+
+```html
+<div class="c-alert c-alert--success">OKです！問題ありません！</div>
+<div class="c-alert c-alert--info">読んでほしいお知らせです。</div>
+<div class="c-alert c-alert--warning">気をつけて！ちゃんと読んでください！</div>
+<div class="c-alert c-alert--danger">すみません、だめでした。</div>
+```
+
+*/
+
+.c-alert {
+  color: $g-color-white;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  padding: 1em 1.4em;
+
+  // modifiers
+  &.c-alert--success {
+    background-color: pe-color(success,base);
+  }
+  &.c-alert--info {
+    background-color: pe-color(info,base);
+  }
+  &.c-alert--warning {
+    background-color: pe-color(warning,dark);
+  }
+  &.c-alert--danger {
+    background-color: $btn-bg-danger-color;
+  }
+}
+
