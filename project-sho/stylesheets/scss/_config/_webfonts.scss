@@ -3,26 +3,25 @@
 name: Webfonts
 framework:
   - Project-SHO/Foundation/Webfonts
+template: glyph
 ---
 
-```html
-<ul class="pepagis-webfonts pepagis-clearfix">
-  <li class="agly-b-glass"></li>
-  <li class="agly-b-music"></li>
-  <li class="agly-b-search"></li>
-  <li class="agly-b-envelope-o"></li>
-  <li class="agly-b-heart"></li>
-</ul>
-```
+pe-glyph(awesome, agly, glass);
+pe-glyph(awesome, agly, music);
+pe-glyph(awesome, agly, search);
+pe-glyph(awesome, agly, envelope-o);
+pe-glyph(awesome, agly, heart);
+pe-glyph(awesome, agly, heart);
+pe-glyph(awesome, agly, heart);
 
-*/  
+*/
 
 $g-webfonts: (
   awesome: (
     name   : "Awesome Glyphs",
     file   : "awesome-glyphs",
     svgid  : "Awesome-Glyphs",
-    prefix : "agly-",
+    prefix : "agly",
     glyphs : (
       glass                  : 'f000',
       music                  : 'f001',
@@ -724,7 +723,7 @@ $g-webfonts: (
     name   : "Entypo Glyphs",
     file   : "entypo-glyphs",
     svgid  : "Entypo-Glyphs",
-    prefix : "egly-",
+    prefix : "egly",
     glyphs : (
       add-to-list                       : 'f000',
       classic-computer                  : 'f001',
@@ -1117,7 +1116,7 @@ $g-webfonts: (
     name   : "Feather Glyphs",
     file   : "feather-glyphs",
     svgid  : "Feather-Glyphs",
-    prefix : "fgly-",
+    prefix : "fgly",
     glyphs : (
       eye            : 'f000',
       paper-clip     : 'f001',

@@ -51,8 +51,8 @@ library:
         $prefix : map-get($data, prefix);
         $glyphs : map-get($data, glyphs);
 
-        [class^="#{$prefix}b-"]:before,
-        [class*=" #{$prefix}b-"]:before {
+        [class^="#{$prefix}-b-"]:before,
+        [class*=" #{$prefix}-b-"]:before {
           font-family: $name;
           font-style: normal;
           font-weight: normal;
@@ -62,8 +62,8 @@ library:
           speak: none;
         }
         
-        [class^="#{$prefix}a-"]:after,
-        [class*=" #{$prefix}a-"]:after {
+        [class^="#{$prefix}-a-"]:after,
+        [class*=" #{$prefix}-a-"]:after {
           font-family: $name;
           font-style: normal;
           font-weight: normal;
@@ -74,8 +74,8 @@ library:
         }
         
         @each $glyph-name, $glyph-code in $glyphs {
-          .#{$prefix}b-#{$glyph-name}:before,
-          .#{$prefix}a-#{$glyph-name}:after {
+          .#{$prefix}-b-#{$glyph-name}:before,
+          .#{$prefix}-a-#{$glyph-name}:after {
             content: #{'"' + '\\' + $glyph-code + '"'};
           }
         }

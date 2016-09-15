@@ -2,12 +2,8 @@
 // base
 // ==================================================
 @include pe-base(reset);
-@include pepagis-colors($g-color-palettes);
-// @include pepagis-webfonts($g-color-webfonts);
 @include pe-webfont(awesome);
-// @include pe-webfont(entypo);
-// @include pe-webfont(feather);
-
-// @include pe-glyph(awesome, name);
-
+@include pe-webfont(entypo);
+@include pe-webfont(feather);
+@include pepagis-colors($g-color-palettes);
 
