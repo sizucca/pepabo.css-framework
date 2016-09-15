@@ -1,16 +1,99 @@
-// ==================================================
-// Colors
-// ==================================================
+/*
+---
+name: Colors
+framework:
+  - Project-SHO/Colors
+---
+
+```html
+<ul class="pepagis-colors pepagis-clearfix">
+  <li class="pepagis-colors__item u-color--default-base"></li>
+  <li class="pepagis-colors__item u-color--default-light"></li>
+  <li class="pepagis-colors__item u-color--default-dark"></li>
+
+  <li class="pepagis-colors__item u-color--success-base"></li>
+  <li class="pepagis-colors__item u-color--success-light"></li>
+  <li class="pepagis-colors__item u-color--success-dark"></li>
+
+  <li class="pepagis-colors__item u-color--info-base"></li>
+  <li class="pepagis-colors__item u-color--info-light"></li>
+  <li class="pepagis-colors__item u-color--info-dark"></li>
+
+  <li class="pepagis-colors__item u-color--warning-base"></li>
+  <li class="pepagis-colors__item u-color--warning-light"></li>
+  <li class="pepagis-colors__item u-color--warning-dark"></li>
+
+  <li class="pepagis-colors__item u-color--danger-base"></li>
+  <li class="pepagis-colors__item u-color--danger-light"></li>
+  <li class="pepagis-colors__item u-color--danger-dark"></li>
+</ul>
+```
+
+*/  
 
 // color-palettes
 // ==================================================
 $g-color-palettes : (
-  accent: (
-    base  : #4a7b9c,
-    light : desaturate(lighten(#4a7b9c, 50%), 50%),
-    dark  : #34495e,
+  default: (
+    base  : #a3b1b2,
+    light : lighten(#a3b1b2, 10%),
+    dark  : darken(#a3b1b2, 5%),
+  ),
+  success: (
+    base  : #2ecc71,
+    light : lighten(#2ecc71, 10%),
+    dark  : darken(#2ecc71, 5%),
+  ),
+  info: (
+    base  : #3498db,
+    light : lighten(#3498db, 10%),
+    dark  : darken(#3498db, 5%),
+  ),
+  warning: (
+    base  : #e98b39,
+    light : lighten(#e98b39, 10%),
+    dark  : darken(#e98b39, 5%),
+  ),
+  danger: (
+    base  : #e74c3c,
+    light : lighten(#e74c3c, 10%),
+    dark  : darken(#e74c3c, 5%),
   ),
 );
+
+@each $color-type, $color-tones in $g-color-palettes {
+  @each $color-tone, $color-code in $color-tones {
+    .u-color-- {
+      &#{$color-type}-#{$color-tone} {
+        border-left: 20px solid $color-code;
+        border-radius: 20px 0 0 20px;
+
+        // カラーコードをrgbaに変換
+        $rgba-code: rgba($color-code, 0.99);
+        
+        // rgbaを文字列に変換し、rgbを抜き出し
+        // $alpha-index: str-index('#{$rgba-code}', ', 0.99');
+        // $rgb: str-slice('#{$rgba-code}', 6, $alpha-index - 1);
+              
+        
+        &::before {
+          display: block;
+          padding: 8px 10px;
+          // color: $color-code;
+          border-bottom: 1px solid $color-code;
+          content: "pe-color(#{$color-type}, #{$color-tone})";
+        }
+        &::after {
+          padding: 8px 10px;
+          display: block;
+          color: $color-code;
+          content: "#{$color-code} (#{$rgba-code})";
+        }
+      }
+    }
+  }
+}
+
 
 // color
 // ==================================================
@@ -18,9 +101,9 @@ $g-color-white : #fff;
 $g-color-black : #000;
 
 $g-link-color  : #4078c0;
-$g-hover-color : pe-color(accent);
-$g-text-color  : pe-color(accent, dark);
-$g-key-color   : pe-color(accent);
+$g-hover-color : pe-color(default);
+$g-text-color  : pe-color(default, dark);
+$g-key-color   : pe-color(default);
 
 $g-body-bg-color : $g-color-white;
 
