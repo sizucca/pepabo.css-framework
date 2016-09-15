@@ -87,9 +87,9 @@ $g-color-palettes : (
 // ==================================================
 
 $g-link-color  : #4ab8bd;
-$g-hover-color : pe-color(default);
-$g-text-color  : pe-color(default, dark);
-$g-key-color   : pe-color(default);
+$g-hover-color : lighten($g-link-color, 10%);
+$g-text-color  : pe-color(default);
+$g-key-color   : pe-color(info);
 
 $btn-bg-color         : #b1c2c5;
 $btn-bg-primary-color : #4a87bd;

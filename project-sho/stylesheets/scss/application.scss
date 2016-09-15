@@ -67,6 +67,15 @@ framework:
 
 /*
 ---
+name: Typography
+framework:
+  - Project-SHO/Objects/Typography
+---
+*/
+@import "application/objects/typography/_headings";
+
+/*
+---
 name: Projects
 framework:
   - Project-SHO/Objects/Projects
