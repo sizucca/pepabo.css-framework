@@ -18,7 +18,7 @@ framework:
 <div class="l-row">
   <div class="l-col-3">
     <div class="form-group">
-      <label class="c-label" for="name">名前</label>
+      <label class="label" for="name">名前</label>
       <input class="c-input" type="text" name="name">
     </div>
   </div>
@@ -67,7 +67,7 @@ framework:
 .form-group {
   position: relative;
   margin-bottom: 20px;
-  .c-label {
+  .label {
     display: block;
     color: darken($g-color-gray,15%);
     margin-bottom: 5px;
