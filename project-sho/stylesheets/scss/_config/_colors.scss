@@ -27,6 +27,10 @@ framework:
   <li class="pepagis-colors__item pepagis-color-danger-base"></li>
   <li class="pepagis-colors__item pepagis-color-danger-light"></li>
   <li class="pepagis-colors__item pepagis-color-danger-dark"></li>
+
+  <li class="pepagis-colors__item pepagis-color-gray-base"></li>
+  <li class="pepagis-colors__item pepagis-color-gray-light"></li>
+  <li class="pepagis-colors__item pepagis-color-gray-dark"></li>
 </ul>
 ```
 
@@ -35,6 +39,7 @@ framework:
 // key-color
 // ==================================================
 $g-color-white : #fff;
+$g-color-gray  : #dfe8e8;
 $g-color-black : #343e45;
 
 $g-default-color : #343e45;
@@ -70,6 +75,11 @@ $g-color-palettes : (
     base  : $g-danger-color,
     light : lighten($g-danger-color, 10%),
     dark  : darken($g-danger-color, 5%),
+  ),
+  gray: (
+    base  : $g-color-gray,
+    light : lighten($g-color-gray, 6%),
+    dark  : darken($g-color-gray, 5%),
   ),
 );
 
