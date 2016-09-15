@@ -1,0 +1,55 @@
+/*
+---
+name: pe-calc()
+library:
+  - Peparbon/CSS3
+  - Peparbon/CSS3/pe-calc()
+---
+
+| IE             | IE    | Chrome | Firefox | Safari | Opera  | iOS   | Android | Can I use                                                  |
+| :------------: | :---: | :----: | :-----: | :----: | :----: | :---: | :-----: | :--------------------------------------------------------- |
+| `9` ※部分対応 | `10`  | `19`   | `4`     | `6`    | `15`   | `6.1` | `4.4`   | [calc() as CSS unit value](http://caniuse.com/#feat=calc)  |
+
+| 引数        | 初期値 | 値                               | 備考                           |
+| :---------- | :----- | :------------------------------- | :----------------------------- |
+| `$property` | なし   | `calc` が指定可能なプロパティ名  | -                              |
+| `$value`    | なし   | `calc` の引数値                  | 【注意】`<String>` で指定する  |
+
+```scss
+@mixin pe-calc($property, $value) {
+  ...
+}
+```
+
+```scss
+.class-name {
+  @include pe-calc(width, "25% - 1em");
+}
+```
+
+```css
+.class-name {
+  width: -webkit-calc(25% - 1em);
+  width: -moz-calc(25% - 1em);
+  width: calc(25% - 1em);
+}
+```
+
+*/
+/// @require {variable} $pe-prefix-for-webkit
+/// @require {variable} $pe-prefix-for-mozilla
+/// @require {variable} $pe-prefix-for-microsoft
+/// @require {variable} $pe-prefix-for-opera
+/// @require {variable} $pe-prefix-for-spec
+
+@mixin pe-calc($property, $value) {
+  @if $pe-prefix-for-webkit {
+    #{$property}: -webkit-calc(#{$value});
+  }
+  @if $pe-prefix-for-mozilla {
+    #{$property}: -moz-calc(#{$value});
+  }
+  @if $pe-prefix-for-spec {
+    #{$property}: pe-calc(#{$value});
+  }
+}

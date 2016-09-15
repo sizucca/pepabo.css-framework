@@ -1,0 +1,49 @@
+/*
+---
+name: pe-clearfix()
+library:
+  - Peparbon/Add-ons
+  - Peparbon/Add-ons/pe-clearfix()
+---
+
+| 引数 | 初期値 | 値   | 備考 |
+| :--- | :---   | :--- | :--- |
+| なし | -      | -    | -    |
+
+```scss
+@mixin pe-clearfix {
+  ...
+}
+```
+
+```scss
+.class-name {
+  @include pe-clearfix;
+}
+```
+
+```css
+.class-name:before,
+.class-name:after {
+  display: block;
+  overflow: hidden;
+  content: "";
+}
+.class-name:after {
+  clear: both;
+}
+```
+
+*/
+
+@mixin pe-clearfix {
+  &:before,
+  &:after {
+    display: block;
+    overflow: hidden;
+    content: "";
+  }
+  &:after {
+    clear: both;
+  }
+}

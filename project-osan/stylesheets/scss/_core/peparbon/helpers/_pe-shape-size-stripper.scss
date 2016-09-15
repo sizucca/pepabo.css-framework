@@ -1,0 +1,24 @@
+/*hide
+---
+name: _pe-shape-size-stripper()
+library:
+  - Peparbon/Helpers
+  - Peparbon/Helpers/_pe-shape-size-stripper()
+---
+
+* Helper function for `css3/_pe-radial-gradient`.
+* Helper function for `helpers/_pe-radial-positions-parser`.
+
+*/
+
+@function _pe-shape-size-stripper($shape-size) {
+  $shape-size-spec: null;
+  
+  @each $value in $shape-size {
+    @if ($value == "cover") or ($value == "contain") {
+      $value: null;
+    }
+    $shape-size-spec: "#{$shape-size-spec} #{$value}";
+  }
+  @return $shape-size-spec;
+}

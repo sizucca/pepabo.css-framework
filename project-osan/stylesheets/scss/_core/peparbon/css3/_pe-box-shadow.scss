@@ -1,0 +1,40 @@
+/*
+---
+name: pe-box-shadow()
+library:
+  - Peparbon/CSS3
+  - Peparbon/CSS3/pe-box-shadow()
+---
+
+| IE    | Chrome | Firefox | Safari | Opera  | iOS   | Android | Can I use                                                 |
+| :---: | :----: | :-----: | :----: | :----: | :---: | :-----: | :-------------------------------------------------------- |
+| `9`   | `OK`   | `4`     | `3.1`  | `11.5` | `3.2` | `2.1`   | [CSS3 Box-shadow](http://caniuse.com/#feat=css-boxshadow) |
+
+| @mixin 名                  | @mixin 引数値              | 備考 |
+| :------------------------- | :------------------------- | :--- |
+| `CSS プロパティ名` と 同じ | `CSS プロパティ値` と 同じ | -    |
+
+```scss
+@mixin pe-box-shadow($shadow...) {
+  ...
+}
+```
+
+```scss
+.class-name {
+  @include pe-box-shadow(0 2px 2px rgba(0, 0, 0, 0.1));
+}
+```
+
+```css
+.class-name {
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+```
+
+*/
+
+@mixin pe-box-shadow($shadow...) {
+  @include _pe-prefixer(box-shadow, $shadow, webkit spec);
+}

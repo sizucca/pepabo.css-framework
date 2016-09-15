@@ -1,0 +1,34 @@
+/*
+---
+name: Variables
+library:
+  - Peparbon/Variables
+---
+
+| 変数名                     | 初期値    | 値          | 定義ファイル     | 説明                                                            |
+| :------------------------- | :-------- | :---------- | :--------------- | :-------------------------------------------------------------- |
+| `$pe-webfonts`             | （省略）  | `<Map>`     | `_webfonts.scss` | Web フォントの設定                                              |
+| `$pe-prefix-for-webkit`    | `true`    | `<Boolean>` | `_settings.scss` | webkit ベンダープレフィックスの有無                             |
+| `$pe-prefix-for-mozilla`   | `true`    | `<Boolean>` | `_settings.scss` | mozilla ベンダープレフィックスの有無                            |
+| `$pe-prefix-for-microsoft` | `true`    | `<Boolean>` | `_settings.scss` | microsoft ベンダープレフィックスの有無                          |
+| `$pe-prefix-for-opera`     | `true`    | `<Boolean>` | `_settings.scss` | opera ベンダープレフィックスの有無                              |
+| `$pe-prefix-for-spec`      | `true`    | `<Boolean>` | `_settings.scss` | ベンダープレフィックスなしの有無                                |
+| `$pe-rem-default`          | `16px`    | `<Number>`  | `_settings.scss` | ブラウザのデフォルトフォントサイズ（通常、変更する必要はない）  |
+| `$pe-rem-base`             | `10px`    | `<Number>`  | `_settings.scss` | `1rem` に対応したフォントサイズ（`px` 値を想定）                |
+| `$pe-rem-fallback`         | `true`    | `<Boolean>` | `_settings.scss` | `rem` のフォールバック（`px`）の有無                            |
+
+*/
+
+// prefixer setting
+// ==================================================
+$pe-prefix-for-webkit    : true !default;
+$pe-prefix-for-mozilla   : true !default;
+$pe-prefix-for-microsoft : true !default;
+$pe-prefix-for-opera     : true !default;
+$pe-prefix-for-spec      : true !default;
+
+// rem setting
+// ==================================================
+$pe-rem-default  : 16px !default;
+$pe-rem-base     : 10px !default;
+$pe-rem-fallback : true !default;

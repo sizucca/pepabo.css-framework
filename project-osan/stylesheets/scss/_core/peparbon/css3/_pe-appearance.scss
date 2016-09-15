@@ -1,0 +1,42 @@
+/*
+---
+name: pe-appearance()
+library:
+  - Peparbon/CSS3
+  - Peparbon/CSS3/pe-appearance()
+---
+
+| IE    | Chrome | Firefox | Safari | Opera  | iOS   | Android | Can I use                                                 |
+| :---: | :----: | :-----: | :----: | :----: | :---: | :-----: | :-------------------------------------------------------- |
+| `12`  | `OK`   | `2`     | `3.1`  | `15`   | `3.2` | `2.1`   | [CSS Appearance](http://caniuse.com/#feat=css-appearance) |
+
+| @mixin 名                  | @mixin 引数値              | 備考 |
+| :------------------------- | :------------------------- | :--- |
+| `CSS プロパティ名` と 同じ | `CSS プロパティ値` と 同じ | -    |
+
+```scss
+@mixin pe-appearance($value: none) {
+  ...
+}
+```
+
+```scss
+.class-name {
+  @include pe-appearance(none);
+}
+```
+
+```css
+.class-name {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+}
+```
+
+*/
+
+@mixin pe-appearance($value) {
+  @include _pe-prefixer(appearance, $value, webkit moz ms spec);
+}

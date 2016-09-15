@@ -1,0 +1,95 @@
+/*
+---
+name: c-btn-outline
+framework:
+  - Project-OSAN/Objects/Components
+  - Project-OSAN/Objects/Components/c-btn-outline
+---
+
+```html
+<button type="button" class="c-btn-outline">デフォルト</button>
+<button type="button" class="c-btn-outline c-btn-outline--primary">普通</button>
+<button type="button" class="c-btn-outline c-btn-outline--success">更新</button>
+<button type="button" class="c-btn-outline c-btn-outline--info">案内</button>
+<button type="button" class="c-btn-outline c-btn-outline--warning">注意</button>
+<button type="button" class="c-btn-outline c-btn-outline--danger">危険</button>
+```
+
+```html
+<a href="#" class="c-btn-outline">デフォルト</a>
+<a href="#" class="c-btn-outline c-btn-outline--primary">普通</a>
+<a href="#" class="c-btn-outline c-btn-outline--success">更新</a>
+<a href="#" class="c-btn-outline c-btn-outline--info">案内</a>
+<a href="#" class="c-btn-outline c-btn-outline--warning">注意</a>
+<a href="#" class="c-btn-outline c-btn-outline--danger">危険</a>
+```
+
+*/
+
+.c-btn-outline {
+  background-color: transparent;
+  border: 1px solid $btn-bg-color;
+  border-radius: $g-border-radius;
+  @include pe-box-shadow(0 1px 3px rgba(0,0,0,.1));
+  color: $btn-bg-color;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: normal;
+  font-size: 90%;
+  line-height: 1.5;
+  margin: 0;
+  outline: none;
+  padding: 0.6em 1.2em;
+  text-align: center;
+  text-decoration: none;
+  transition: all .2s;
+  vertical-align: middle;
+  &:hover {
+    background-color: $btn-bg-color;
+    color: $g-color-white;
+    text-decoration: none;
+  }
+
+  // modifiers
+  &.c-btn-outline--primary {
+    border: 1px solid $btn-bg-primary-color;
+    color: $btn-bg-primary-color;
+    &:hover {
+      background-color: $btn-bg-primary-color;
+      color: $g-color-white;
+    }
+  }
+  &.c-btn-outline--success {
+    border: 1px solid $btn-bg-success-color;
+    color: $btn-bg-success-color;
+    &:hover {
+      background-color: $btn-bg-success-color;
+      color: $g-color-white;
+    }
+  }
+  &.c-btn-outline--info {
+    border: 1px solid $btn-bg-info-color;
+    color: $btn-bg-info-color;
+    &:hover {
+      background-color: $btn-bg-info-color;
+      color: $g-color-white;
+    }
+  }
+  &.c-btn-outline--warning {
+    border: 1px solid $btn-bg-warning-color;
+    color: $btn-bg-warning-color;
+    &:hover {
+      background-color: $btn-bg-warning-color;
+      color: $g-color-white;
+    }
+  }
+  &.c-btn-outline--danger {
+    border: 1px solid $btn-bg-danger-color;
+    color: $btn-bg-danger-color;
+    &:hover {
+      background-color: $btn-bg-danger-color;
+      color: $g-color-white;
+    }
+  }
+}
+

@@ -1,0 +1,25 @@
+/*
+---
+name: c-well
+framework:
+  - Project-OSAN/Objects/Components
+  - Project-OSAN/Objects/Components/c-well
+---
+
+```html
+<p class="c-well">ちょっとしたテキストを書き添えたいことがありますよね。<br>そういう時に使います。</p>
+```
+
+*/
+
+.c-well {
+  background: pe-color(gray,light);
+  border: 1px solid pe-color(gray,dark);
+  border-radius: $g-border-radius;
+  color: pe-color(default,light);
+  font-size: 96%;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  padding: 1em 1.4em;
+}
+
