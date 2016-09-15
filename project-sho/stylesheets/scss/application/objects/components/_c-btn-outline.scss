@@ -30,6 +30,7 @@ framework:
   background-color: transparent;
   border: 1px solid $btn-bg-color;
   border-radius: $g-border-radius;
+  @include pe-box-shadow(0 1px 3px rgba(0,0,0,.1));
   color: $btn-bg-color;
   cursor: pointer;
   display: inline-block;
@@ -71,6 +72,7 @@ framework:
     color: $btn-bg-info-color;
     &:hover {
       background-color: $btn-bg-info-color;
+      color: $g-color-white;
     }
   }
   &.c-btn-outline--warning {
