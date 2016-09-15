@@ -30,7 +30,7 @@ framework:
   background-color: $btn-bg-color;
   border-radius: $g-border-radius;
   border: none;
-  color: #fff;
+  color: $g-color-white;
   cursor: pointer;
   display: inline-block;
   font-weight: normal;
@@ -45,7 +45,7 @@ framework:
   vertical-align: middle;
   &:hover {
     background-color: lighten($btn-bg-color, 10%);
-    color: #fff;
+    color: $g-color-white;
     text-decoration: none;
   }
 

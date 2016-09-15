@@ -28,8 +28,8 @@ framework:
 
 .c-btn-outline {
   background-color: transparent;
+  border: 1px solid $btn-bg-color;
   border-radius: $g-border-radius;
-  border: none;
   color: $btn-bg-color;
   cursor: pointer;
   display: inline-block;
@@ -45,7 +45,7 @@ framework:
   vertical-align: middle;
   &:hover {
     background-color: $btn-bg-color;
-    color: #fff;
+    color: $g-color-white;
     text-decoration: none;
   }
 
@@ -55,7 +55,7 @@ framework:
     color: $btn-bg-primary-color;
     &:hover {
       background-color: $btn-bg-primary-color;
-      color: #fff;
+      color: $g-color-white;
     }
   }
   &.c-btn-outline--success {
@@ -63,7 +63,7 @@ framework:
     color: $btn-bg-success-color;
     &:hover {
       background-color: $btn-bg-success-color;
-      color: white;
+      color: $g-color-white;
     }
   }
   &.c-btn-outline--info {
@@ -78,7 +78,7 @@ framework:
     color: $btn-bg-warning-color;
     &:hover {
       background-color: $btn-bg-warning-color;
-      color: white;
+      color: $g-color-white;
     }
   }
   &.c-btn-outline--danger {
@@ -86,57 +86,7 @@ framework:
     color: $btn-bg-danger-color;
     &:hover {
       background-color: $btn-bg-danger-color;
-      color: white;
-    }
-  }
-}
-
-.c-btn-outline {
-  background-color: transparent;
-  border: 1px solid $btn-bg-color;
-  color: $btn-bg-color;
-  &:hover {
-    background-color: $btn-bg-color;
-    color: white;
-  }
-  &.c-btn-outline--primary {
-    border: 1px solid $btn-bg-primary-color;
-    color: $btn-bg-primary-color;
-    &:hover {
-      background-color: $btn-bg-primary-color;
-      color: white;
-    }
-  }
-  &.c-btn-outline--success{
-    border: 1px solid $btn-bg-success-color;
-    color: $btn-bg-success-color;
-    &:hover {
-      background-color: $btn-bg-success-color;
-      color: white;
-    }
-  }
-  &.c-btn-outline--info{
-    border: 1px solid $btn-bg-info-color;
-    color: $btn-bg-info-color;
-    &:hover {
-      background-color: $btn-bg-info-color;
-      color: white;
-    }
-  }
-  &.c-btn-outline--warning{
-    border: 1px solid $btn-bg-warning-color;
-    color: $btn-bg-warning-color;
-    &:hover {
-      background-color: $btn-bg-warning-color;
-      color: white;
-    }
-  }
-  &.c-btn-outline--danger {
-    border: 1px solid $btn-bg-danger-color;
-    color: $btn-bg-danger-color;
-    &:hover {
-      background-color: $btn-bg-danger-color;
-      color: white;
+      color: $g-color-white;
     }
   }
 }
