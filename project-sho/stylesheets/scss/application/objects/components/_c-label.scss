@@ -1,0 +1,43 @@
+/*
+---
+name: c-label
+framework:
+  - Project-SHO/Objects/Components
+  - Project-SHO/Objects/Components/c-label
+---
+
+```html
+<span class="c-label">ラベル</span>
+<span class="c-label c-label--success">ルベラ</span>
+<span class="c-label c-label--info">らべる</span>
+<span class="c-label c-label--warning">label</span>
+<span class="c-label c-label--danger">羅辺瑠</span>
+```
+
+*/
+
+.c-label {
+  border-radius: $g-border-radius;
+  background: pe-color(gray,dark);
+  color: $g-color-white;
+  display: inline-block;
+  font-size: 0.9em;
+  padding: 3px 7px;
+  text-align: center;
+  white-space: nowrap;
+
+  // modifiers
+  &.c-label--success {
+    background-color: pe-color(success,base);
+  }
+  &.c-label--info {
+    background-color: pe-color(info,base);
+  }
+  &.c-label--warning {
+    background-color: pe-color(warning,dark);
+  }
+  &.c-label--danger {
+    background-color: $btn-bg-danger-color;
+  }
+}
+
