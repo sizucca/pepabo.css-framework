@@ -62,8 +62,9 @@ framework:
 @import "application/objects/components/_c-alert";
 @import "application/objects/components/_c-btn";
 @import "application/objects/components/_c-btn-outline";
-@import "application/objects/components/_c-note";
+@import "application/objects/components/_c-well";
 @import "application/objects/components/_c-input";
+@import "application/objects/components/_c-label";
 
 /*
 ---
@@ -73,6 +74,7 @@ framework:
 ---
 */
 @import "application/objects/typography/_headings";
+@import "application/objects/typography/_text";
 
 /*
 ---
