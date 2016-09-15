@@ -1,0 +1,122 @@
+/*
+---
+name: c-input
+framework:
+  - Project-SHO/Objects/Components
+  - Project-SHO/Objects/Components/c-input
+---
+
+```html
+<div class="form-group">
+  <input class="c-input" type="text" placeholder="入力フォーム">
+</div>
+
+<div class="form-group">
+  <label for="name">名前</label>
+  <input class="c-input" type="text" name="name">
+</div>
+
+<label class="radio">
+  <input id="sample1" class="c-radio" type="radio" name="sample" value="option1" data-toggle="radio">
+  <span class="icons">
+    <span class="icon-unchecked"></span>
+    <span class="icon-checked"></span>
+  </span>
+  ラジオボタン
+</label>
+<label class="radio">
+  <input id="sample2" class="c-radio" type="radio" name="sample" value="option2" data-toggle="radio">
+  <span class="icons">
+    <span class="icon-unchecked"></span>
+    <span class="icon-checked"></span>
+  </span>
+  ラジオボタン
+</label>
+<label class="radio">
+  <input id="sample3" class="c-radio" type="radio" name="sample" value="option3" data-toggle="radio">
+  <span class="icons">
+    <span class="icon-unchecked"></span>
+    <span class="icon-checked"></span>
+  </span>
+  ラジオボタン
+</label>
+
+<div class="form-group">
+  <textarea cols="40" rows="6"></textarea>
+</div>
+```
+*/
+
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+  label {
+    display: block;
+    color: darken($g-color-gray,15%);
+    margin-bottom: 5px;
+    padding: 0 5px;
+  }
+  .c-input,
+  input[type="text"],
+  textarea {
+    border: 2px solid pe-color(gray);
+    border-radius: 6px;
+    color: pe-color(default);
+    display: block;
+    font-size: 98%;
+    padding: 8px 12px;
+    @include pe-transition(all 0.25s linear);
+    &:focus {
+      box-shadow: none;
+      border-color: $form-border-color;
+      outline: 0;
+    }
+  }
+  .c-input,
+  input[type="text"] {
+    height: 26px;
+    width: 100%;
+  }
+}
+
+.radio {
+  color: pc-color(default,light);
+  display: block;
+  line-height: 1.5;
+  min-height: 20px;
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 32px;
+  @include pe-transition(all 0.25s linear);
+  input[type="radio"],
+  .c-radio {
+    -webkit-appearance: radio;
+    opacity: 0;
+    height: 20px;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    &:checked + .icons {
+      color: $form-border-color;
+    }
+  }
+  .icons {
+    cursor: pointer;
+    display: block;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    width: 20px
+  }
+  & + .radio {
+    margin-bottom: 10px;
+  }
+}
+
+
