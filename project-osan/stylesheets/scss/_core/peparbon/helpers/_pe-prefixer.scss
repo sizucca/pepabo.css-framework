@@ -1,0 +1,93 @@
+/*hide
+---
+name: _pe-prefixer()
+library:
+  - Peparbon/Helpers
+  - Peparbon/Helpers/_pe-prefixer()
+---
+
+| 引数        | 初期値 | 値                 | 備考                                                         |
+| :---------- | :----- | :----------------- | :----------------------------------------------------------- |
+| `$property` | なし   | `CSS プロパティ名` | -                                                            |
+| `$value`    | なし   | `CSS プロパティ値` | -                                                            |
+| `$prefixes` | なし   | `<List>`           | 利用可能な値（記述順を守る）：`webkit` `moz` `ms` `o` `spec` |
+
+* 非標準プロパティにベンダープレフィックスを生成するための `@mixin`。
+* `@mixin` だが、ライブラリ内での使用しか想定していないため、例外として Helper にカテゴライズ。
+
+```scss
+@mixin _pe-prefixer($property, $value, $prefixes) {
+  ...
+}
+```
+*/
+/// @require {variable} $pe-prefix-for-webkit
+/// @require {variable} $pe-prefix-for-mozilla
+/// @require {variable} $pe-prefix-for-microsoft
+/// @require {variable} $pe-prefix-for-opera
+/// @require {variable} $pe-prefix-for-spec
+
+@mixin _pe-prefixer($property, $value, $prefixes) {
+  @each $prefix in $prefixes {
+    @if $prefix == webkit {
+      @if $pe-prefix-for-webkit {
+        -webkit-#{$property}: $value;
+      }
+    }
+    @else if $prefix == moz {
+      @if $pe-prefix-for-mozilla {
+        -moz-#{$property}: $value;
+      }
+    }
+    @else if $prefix == ms {
+      @if $pe-prefix-for-microsoft {
+        -ms-#{$property}: $value;
+      }
+    }
+    @else if $prefix == o {
+      @if $pe-prefix-for-opera {
+        -o-#{$property}: $value;
+      }
+    }
+    @else if $prefix == spec {
+      @if $pe-prefix-for-spec {
+        #{$property}: $value;
+      }
+    }
+    @else  {
+      @warn "'#{$prefix}' は認識できないベンダープレフィックスです。";
+    }
+  }
+}
+@mixin _pe-prefixer($property, $value, $prefixes) {
+  @each $prefix in $prefixes {
+    @if $prefix == webkit {
+      @if $pe-prefix-for-webkit {
+        -webkit-#{$property}: $value;
+      }
+    }
+    @else if $prefix == moz {
+      @if $pe-prefix-for-mozilla {
+        -moz-#{$property}: $value;
+      }
+    }
+    @else if $prefix == ms {
+      @if $pe-prefix-for-microsoft {
+        -ms-#{$property}: $value;
+      }
+    }
+    @else if $prefix == o {
+      @if $pe-prefix-for-opera {
+        -o-#{$property}: $value;
+      }
+    }
+    @else if $prefix == spec {
+      @if $pe-prefix-for-spec {
+        #{$property}: $value;
+      }
+    }
+    @else  {
+      @warn "'#{$prefix}' は認識できないベンダープレフィックスです。";
+    }
+  }
+}

@@ -1,0 +1,48 @@
+/*
+---
+name: pe-root-font-size()
+library:
+  - Peparbon/Functions
+  - Peparbon/Functions/pe-root-font-size()
+---
+
+| 引数    | 初期値        | 値            | 備考                                           |
+| :------ | :------------ | :------------ | :--------------------------------------------- |
+| `$size` | `$pe-rem-base` | `<Integer>px` | 理由がない場合は指定なし（初期値のまま）にする |
+
+* ブラウザデフォルトのフォントサイズ（一般的には16px）に対する引数値のパーセンテージを返す。
+* 引数値は、特に理由がない場合は指定なし（初期値のまま）にする。
+* **root 要素（html 要素）のフォントサイズにのみ**使用可能。  
+
+```scss
+@function pe-root-font-size($size: $pe-rem-base) {
+  ...
+}
+```
+
+```scss
+html {
+  font-size: pe-root-font-size();
+}
+```
+
+```scss
+html {
+  font-size: 62.5%; // $pe-rem-base: 10px; の場合
+}
+```
+
+*/
+/// @require {variable} $pe-rem-default
+/// @require {variable} $pe-rem-base
+
+@function pe-root-font-size($size: $pe-rem-base) {
+  // 今の所（ブラウザデフォルトが 16px なので）引数値も px 値しか想定していない
+  @if unit($size) == "px" {
+    @return percentage($size / $pe-rem-default);
+  }
+  @else {
+    @warn "pe-root-font-size() の引数値 '#{$size}' が不正です。";
+    @return false;
+  }
+}

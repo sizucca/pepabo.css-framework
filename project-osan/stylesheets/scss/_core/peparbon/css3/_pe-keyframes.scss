@@ -1,0 +1,100 @@
+/*
+---
+name: pe-keyframes()
+library:
+  - Peparbon/CSS3
+  - Peparbon/CSS3/pe-keyframes()
+---
+
+| IE    | Chrome | Firefox | Safari | Opera  | iOS   | Android | Can I use                                               |
+| :---: | :----: | :-----: | :----: | :----: | :---: | :-----: | :------------------------------------------------------ |
+| `10`  | `OK`   | `5`     | `4`    | `12.1` | `3.2` | `2.1`   | [CSS Animation](http://caniuse.com/#feat=css-animation) |
+
+| 引数    | 初期値 | 値                                 | 備考 |
+| :------ | :----- | :--------------------------------- | :--- |
+| `$name` | なし   | キーフレームのリストを識別する名前 | -    |
+
+```scss
+@mixin pe-keyframes($name) {
+  ...
+}
+```
+
+```scss
+@include pe-keyframes(loading) {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 50px;
+  }
+  100% {
+    top: 0;
+  }
+}
+```
+
+```css
+@-webkit-keyframes loading {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 50px;
+  }
+  100% {
+    top: 0;
+  }
+}
+@-moz-keyframes loading {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 50px;
+  }
+  100% {
+    top: 0;
+  }
+}
+@keyframes loading {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 50px;
+  }
+  100% {
+    top: 0;
+  }
+}
+```
+
+*/
+/// @require {variable} $pe-prefix-for-webkit
+/// @require {variable} $pe-prefix-for-mozilla
+/// @require {variable} $pe-prefix-for-microsoft
+/// @require {variable} $pe-prefix-for-opera
+/// @require {variable} $pe-prefix-for-spec
+
+@mixin pe-keyframes($name) {
+
+  @if $pe-prefix-for-webkit {
+    @-webkit-keyframes #{$name} {
+      @content;
+    }
+  }
+
+  @if $pe-prefix-for-mozilla {
+    @-moz-keyframes #{$name} {
+      @content;
+    }
+  }
+
+  @if $pe-prefix-for-spec {
+    @keyframes #{$name} {
+      @content;
+    }
+  }
+
+}

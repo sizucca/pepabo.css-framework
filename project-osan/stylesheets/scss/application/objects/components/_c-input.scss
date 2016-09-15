@@ -1,0 +1,134 @@
+/*
+---
+name: c-input
+framework:
+  - Project-OSAN/Objects/Components
+  - Project-OSAN/Objects/Components/c-input
+---
+
+```html
+<div class="l-row">
+  <div class="l-col-3">
+    <div class="form-group">
+      <input class="c-input" type="text" placeholder="入力フォーム">
+    </div>
+  </div>
+</div>
+
+<div class="l-row">
+  <div class="l-col-3">
+    <div class="form-group">
+      <label class="c-label" for="name">名前</label>
+      <input class="c-input" type="text" name="name">
+    </div>
+  </div>
+</div>
+```
+
+```html
+<div class="form-group">
+  <label class="radio">
+    <input id="sample1" class="c-radio" type="radio" name="sample" value="option1" data-toggle="radio">
+    ラジオボタン
+  </label>
+  <label class="radio">
+    <input id="sample2" class="c-radio" type="radio" name="sample" value="option2" data-toggle="radio">
+    ラジオボタン
+  </label>
+  <label class="radio">
+    <input id="sample3" class="c-radio" type="radio" name="sample" value="option3" data-toggle="radio">
+    ラジオボタン
+  </label>
+</div>
+
+<div class="form-group">
+  <label class="checkbox" for="checkbox1">
+    <input id="checkbox1" class="c-checkbox" type="checkbox" data-toggle="checkbox">
+    チェックボックス
+  </label>
+  <label class="checkbox" for="checkbox2">
+    <input id="checkbox2" class="c-checkbox" type="checkbox" data-toggle="checkbox">
+    チェックボックス
+  </label>
+  <label class="checkbox" for="checkbox3">
+    <input id="checkbox3" class="c-checkbox" type="checkbox" data-toggle="checkbox">
+    チェックボックス
+  </label>
+</div>
+```
+
+```html
+<div class="form-group">
+  <textarea cols="40" rows="6"></textarea>
+</div>
+```
+*/
+
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+  .c-label {
+    display: block;
+    color: darken($g-color-gray,15%);
+    margin-bottom: 5px;
+    padding: 0 5px;
+  }
+  .c-input,
+  input[type="text"],
+  textarea {
+    border: 2px solid pe-color(gray);
+    border-radius: 6px;
+    color: pe-color(default);
+    display: block;
+    font-size: 98%;
+    padding: 8px 12px;
+    @include pe-transition(all 0.25s linear);
+    &:focus {
+      box-shadow: none;
+      border-color: $form-border-color;
+      outline: 0;
+    }
+  }
+  .c-input,
+  input[type="text"] {
+    height: 26px;
+    width: 100%;
+  }
+}
+
+.radio,
+.checkbox {
+  color: pe-color(default,light);
+  display: block;
+  min-height: 20px;
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 32px;
+  @include pe-transition(all 0.25s linear);
+  input[type="radio"],
+  .c-radio {
+    -webkit-appearance: radio;
+    height: 20px;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+  }
+  input[type="checkbox"],
+  .c-checkbox {
+    -webkit-appearance: checkbox;
+    height: 20px;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+  }
+}
+
+

@@ -1,0 +1,61 @@
+/*
+---
+name: pe-transform()
+library:
+  - Peparbon/CSS3
+  - Peparbon/CSS3/pe-transform()
+---
+
+| IE    | Chrome | Firefox | Safari | Opera  | iOS   | Android | Can I use                                                   |
+| :---: | :----: | :-----: | :----: | :----: | :---: | :-----: | :---------------------------------------------------------- |
+| `9`   | `OK`   | `3.5`   | `3.1`  | `11.5` | `3.2` | `2.1`   | [CSS3 2D Transforms](http://caniuse.com/#feat=transforms2d) |
+
+| @mixin 名                  | @mixin 引数値              | 備考 |
+| :------------------------- | :------------------------- | :--- |
+| `CSS プロパティ名` と 同じ | `CSS プロパティ値` と 同じ | -    |
+
+```scss
+@mixin pe-transform($property: none) {
+  ...
+}
+@mixin pe-transform-origin($axes: 50%) {
+  ...
+}
+@mixin pe-transform-style($style: flat) {
+  ...
+}
+```
+
+```scss
+.class-name {
+  @include pe-transform(translate(100px) rotate(10deg));
+}
+```
+
+```css
+.class-name {
+  -webkit-transform: translate(100px) rotate(10deg);
+  -moz-transform: translate(100px) rotate(10deg);
+  -ms-transform: translate(100px) rotate(10deg);
+  -o-transform: translate(100px) rotate(10deg);
+  transform: translate(100px) rotate(10deg);
+}
+```
+
+*/
+
+@mixin pe-transform($property: none) {
+  // none | <transform-function>
+  @include _pe-prefixer(transform, $property, webkit moz ms o spec);
+}
+
+@mixin pe-transform-origin($axes: 50%) {
+  // x-axis - left | center | right  | length | %
+  // y-axis - top  | center | bottom | length | %
+  // z-axis -                          length
+  @include _pe-prefixer(transform-origin, $axes, webkit moz ms o spec);
+}
+
+@mixin pe-transform-style($style: flat) {
+  @include _pe-prefixer(transform-style, $style, webkit moz ms o spec);
+}

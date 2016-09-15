@@ -1,0 +1,43 @@
+/*
+---
+name: c-alert
+framework:
+  - Project-OSAN/Objects/Components
+  - Project-OSAN/Objects/Components/c-alert
+---
+
+```html
+<div class="c-alert c-alert--success">OKです！問題ありません！</div>
+<div class="c-alert c-alert--info">読んでほしいお知らせです。</div>
+<div class="c-alert c-alert--warning">気をつけて！ちゃんと読んでください！</div>
+<div class="c-alert c-alert--danger">すみません、だめでした。</div>
+```
+
+*/
+
+.c-alert {
+  line-height: 1.6;
+  margin-bottom: 20px;
+  padding: 1em 1.4em;
+  border: 1px solid;
+  border-radius: 5px;
+
+  // modifiers
+  &.c-alert--success {
+    border-color: pe-color(success,base);
+    background-color: pe-color(success,light);
+  }
+  &.c-alert--info {
+    border-color: pe-color(info,base);
+    background-color: pe-color(info,light);
+  }
+  &.c-alert--warning {
+    border-color: pe-color(warning,base);
+    background-color: pe-color(warning,light);
+  }
+  &.c-alert--danger {
+    border-color: pe-color(danger,base);
+    background-color: pe-color(danger,light);
+  }
+}
+

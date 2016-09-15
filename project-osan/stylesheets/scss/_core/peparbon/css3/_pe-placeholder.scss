@@ -1,0 +1,72 @@
+/*
+---
+name: pe-placeholder()
+library:
+  - Peparbon/CSS3
+  - Peparbon/CSS3/pe-placeholder()
+---
+
+| IE    | Chrome | Firefox | Safari | Opera  | iOS   | Android | Can I use                                                                    |
+| :---: | :----: | :-----: | :----: | :----: | :---: | :-----: | :--------------------------------------------------------------------------- |
+| `10`  | `OK`   | `4`     | `5`    | `15`   | `4.3` | `2.1`   | [::placeholder CSS pseudo-element](http://caniuse.com/#feat=css-placeholder) |
+
+| 引数 | 初期値 | 値   | 備考 |
+| :--- | :---   | :--- | :--- |
+| なし | -      | -    | -    |
+
+```scss
+@mixin pe-placeholder {
+  ...
+}
+```
+
+```scss
+.class-name {
+  @include pe-placeholder {
+    color: #d0d0d0;
+  }
+}
+```
+
+```css
+.class-name::-webkit-input-placeholder {
+  color: #d0d0d0;
+}
+.class-name::-moz-placeholder {
+  color: #d0d0d0;
+}
+.class-name:-moz-placeholder {
+  color: #d0d0d0;
+}
+.class-name:-ms-input-placeholder {
+  color: #d0d0d0;
+}
+```
+
+*/
+/// @require {variable} $pe-prefix-for-webkit
+/// @require {variable} $pe-prefix-for-mozilla
+/// @require {variable} $pe-prefix-for-microsoft
+/// @require {variable} $pe-prefix-for-opera
+/// @require {variable} $pe-prefix-for-spec
+
+@mixin pe-placeholder {
+  $prefixes: ();
+  
+  @if $pe-prefix-for-webkit {
+    $prefixes: append($prefixes, ":-webkit-input");
+  }
+  @if $pe-prefix-for-mozilla {
+    $prefixes: append($prefixes, ":-moz");
+    $prefixes: append($prefixes, "-moz");
+  }
+  @if $pe-prefix-for-microsoft {
+    $prefixes: append($prefixes, "-ms-input");
+  }
+  
+  @each $prefix in $prefixes {
+    &:#{$prefix}-placeholder {
+      @content;
+    }
+  }
+}

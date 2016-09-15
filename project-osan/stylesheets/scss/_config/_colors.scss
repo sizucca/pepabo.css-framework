@@ -1,0 +1,100 @@
+/*
+---
+name: Colors
+framework:
+  - Project-OSAN/Foundation/Colors
+template: color
+---
+
+pe-color(default, base);
+pe-color(default, light);
+pe-color(default, dark);
+
+pe-color(success, base);
+pe-color(success, light);
+pe-color(success, dark);
+
+pe-color(info, base);
+pe-color(info, light);
+pe-color(info, dark);
+
+pe-color(warning, base);
+pe-color(warning, light);
+pe-color(warning, dark);
+
+pe-color(danger, base);
+pe-color(danger, light);
+pe-color(danger, dark);
+
+pe-color(gray, base);
+pe-color(gray, light);
+pe-color(gray, dark);
+
+*/  
+
+// key-color
+// ==================================================
+$g-color-white : #fff;
+$g-color-gray  : #dfe8e8;
+$g-color-black : #343e45;
+
+$g-default-color : #4F4E4F;
+$g-success-color : #1abc9c;
+$g-info-color    : #2c82c9;
+$g-warning-color : #fba026;
+$g-danger-color  : #e14938;
+
+// color-palettes
+// ==================================================
+$g-color-palettes : (
+  default: (
+    base  : $g-default-color,
+    light : lighten($g-default-color, 50%),
+    dark  : darken($g-default-color, 5%),
+  ),
+  success: (
+    base  : $g-success-color,
+    light : lighten($g-success-color, 50%),
+    dark  : darken($g-success-color, 5%),
+  ),
+  info: (
+    base  : $g-info-color,
+    light : lighten($g-info-color, 45%),
+    dark  : darken($g-info-color, 5%),
+  ),
+  warning: (
+    base  : $g-warning-color,
+    light : lighten($g-warning-color, 35%),
+    dark  : darken($g-warning-color, 5%),
+  ),
+  danger: (
+    base  : $g-danger-color,
+    light : lighten($g-danger-color, 35%),
+    dark  : darken($g-danger-color, 5%),
+  ),
+  gray: (
+    base  : $g-color-gray,
+    light : lighten($g-color-gray, 6%),
+    dark  : darken($g-color-gray, 5%),
+  ),
+);
+
+// color
+// ==================================================
+
+$g-link-color  : #4ab8bd;
+$g-hover-color : lighten($g-link-color, 10%);
+$g-text-color  : pe-color(default);
+$g-key-color   : pe-color(info);
+
+$btn-bg-color         : #b1c2c5;
+$btn-bg-primary-color : #4a87bd;
+$btn-bg-success-color : $g-success-color;
+$btn-bg-info-color    : $g-info-color;
+$btn-bg-warning-color : $g-warning-color;
+$btn-bg-danger-color  : $g-danger-color;
+
+$form-border-color   : #3899d8;
+
+$g-body-bg-color : $g-color-white;
+

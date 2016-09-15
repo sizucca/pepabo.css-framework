@@ -1,0 +1,19 @@
+/*
+---
+name: u-clearfix
+framework :
+  - Project-OSAN/Objects/Utilities
+  - Project-OSAN/Objects/Utilities/u-clearfix
+---
+
+```html
+<p class="u-clearfix">
+  みんな大好き clearfix。
+</p>
+```
+
+*/
+
+.u-clearfix {
+  @include pe-clearfix;
+}
