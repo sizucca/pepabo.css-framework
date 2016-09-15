@@ -7,37 +7,33 @@ framework:
 ---
 
 ```html
-<div class="form-group">
-  <input class="c-input" type="text" placeholder="入力フォーム">
+<div class="l-row">
+  <div class="l-col-3">
+    <div class="form-group">
+      <input class="c-input" type="text" placeholder="入力フォーム">
+    </div>
+  </div>
 </div>
 
-<div class="form-group">
-  <label for="name">名前</label>
-  <input class="c-input" type="text" name="name">
+<div class="l-row">
+  <div class="l-col-3">
+    <div class="form-group">
+      <label for="name">名前</label>
+      <input class="c-input" type="text" name="name">
+    </div>
+  </div>
 </div>
 
 <label class="radio">
   <input id="sample1" class="c-radio" type="radio" name="sample" value="option1" data-toggle="radio">
-  <span class="icons">
-    <span class="icon-unchecked"></span>
-    <span class="icon-checked"></span>
-  </span>
   ラジオボタン
 </label>
 <label class="radio">
   <input id="sample2" class="c-radio" type="radio" name="sample" value="option2" data-toggle="radio">
-  <span class="icons">
-    <span class="icon-unchecked"></span>
-    <span class="icon-checked"></span>
-  </span>
   ラジオボタン
 </label>
 <label class="radio">
   <input id="sample3" class="c-radio" type="radio" name="sample" value="option3" data-toggle="radio">
-  <span class="icons">
-    <span class="icon-unchecked"></span>
-    <span class="icon-checked"></span>
-  </span>
   ラジオボタン
 </label>
 
@@ -80,9 +76,8 @@ framework:
 }
 
 .radio {
-  color: pc-color(default,light);
+  color: pe-color(default,light);
   display: block;
-  line-height: 1.5;
   min-height: 20px;
   margin-bottom: 12px;
   position: relative;
@@ -91,7 +86,6 @@ framework:
   input[type="radio"],
   .c-radio {
     -webkit-appearance: radio;
-    opacity: 0;
     height: 20px;
     margin: 0;
     outline: none;
@@ -100,19 +94,6 @@ framework:
     top: 0;
     left: 0;
     width: 20px;
-    &:checked + .icons {
-      color: $form-border-color;
-    }
-  }
-  .icons {
-    cursor: pointer;
-    display: block;
-    height: 20px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    text-align: center;
-    width: 20px
   }
   & + .radio {
     margin-bottom: 10px;
