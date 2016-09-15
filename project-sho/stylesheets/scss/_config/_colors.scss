@@ -80,5 +80,12 @@ $g-hover-color : pe-color(default);
 $g-text-color  : pe-color(default, dark);
 $g-key-color   : pe-color(default);
 
+$btn-bg-color         : #b1c2c5;
+$btn-bg-primary-color : #4a87bd;
+$btn-bg-success-color : $g-success-color;
+$btn-bg-info-color    : $g-info-color;
+$btn-bg-warning-color : $g-warning-color;
+$btn-bg-danger-color  : $g-danger-color;
+
 $g-body-bg-color : $g-color-white;
 

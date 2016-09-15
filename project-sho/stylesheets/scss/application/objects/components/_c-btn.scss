@@ -27,39 +27,42 @@ framework:
 */
 
 .c-btn {
-  display: inline-block;
-  cursor: pointer;
-  margin: 0;
-  padding: 0.5em 1em;
-  border: none;
+  background-color: $btn-bg-color;
   border-radius: $g-border-radius;
+  border: none;
   color: #fff;
+  cursor: pointer;
+  display: inline-block;
   font-weight: normal;
+  font-size: 90%;
+  line-height: 1.5;
+  margin: 0;
+  outline: none;
+  padding: 0.6em 1.2em;
   text-align: center;
   text-decoration: none;
+  transition: all .2s;
   vertical-align: middle;
-  line-height: 1.4;
-  background-color: #95a5a6;
-  
   &:hover {
+    background-color: lighten($btn-bg-color, 10%);
     color: #fff;
     text-decoration: none;
   }
 
   // modifiers
   &.c-btn--primary {
-    background-color: #9b59b6;
+    background-color: $btn-bg-primary-color;
   }
   &.c-btn--success {
-    background-color: #2ecc71;
+    background-color: $btn-bg-success-color;
   }
   &.c-btn--info {
-    background-color: #3498db;
+    background-color: $btn-bg-info-color;
   }
   &.c-btn--warning {
-    background-color: #e67e22;
+    background-color: $btn-bg-warning-color;
   }
   &.c-btn--danger {
-    background-color: #e74c3c;
+    background-color: $btn-bg-danger-color;
   }
 }
