@@ -26,38 +26,60 @@ framework:
   <li class="pepagis-colors__item u-color--danger-base"></li>
   <li class="pepagis-colors__item u-color--danger-light"></li>
   <li class="pepagis-colors__item u-color--danger-dark"></li>
+
+  <li class="pepagis-colors__item u-color--normal-base"></li>
+  <li class="pepagis-colors__item u-color--normal-light"></li>
+  <li class="pepagis-colors__item u-color--normal-dark"></li>
 </ul>
 ```
 
 */  
 
+// color
+// ==================================================
+$g-color-white : #fff;
+$g-color-black : #343e45;
+
+$g-default-color : #343e45;
+$g-success-color : #56bda3;
+$g-info-color    : #4ab8bd;
+$g-warning-color : #f2c056;
+$g-danger-color  : #f25670;
+
+$g-link-color  : #4ab8bd;
+$g-hover-color : pe-color(default);
+$g-text-color  : pe-color(default, dark);
+$g-key-color   : pe-color(default);
+
+$g-body-bg-color : $g-color-white;
+
 // color-palettes
 // ==================================================
 $g-color-palettes : (
   default: (
-    base  : #a3b1b2,
-    light : lighten(#a3b1b2, 10%),
-    dark  : darken(#a3b1b2, 5%),
+    base  : $g-default-color,
+    light : lighten($g-default-color, 10%),
+    dark  : darken($g-default-color, 5%),
   ),
   success: (
-    base  : #2ecc71,
-    light : lighten(#2ecc71, 10%),
-    dark  : darken(#2ecc71, 5%),
+    base  : $g-success-color,
+    light : lighten($g-success-color, 10%),
+    dark  : darken($g-success-color, 5%),
   ),
   info: (
-    base  : #3498db,
-    light : lighten(#3498db, 10%),
-    dark  : darken(#3498db, 5%),
+    base  : $g-info-color,
+    light : lighten($g-info-color, 10%),
+    dark  : darken($g-info-color, 5%),
   ),
   warning: (
-    base  : #e98b39,
-    light : lighten(#e98b39, 10%),
-    dark  : darken(#e98b39, 5%),
+    base  : $g-warning-color,
+    light : lighten($g-warning-color, 10%),
+    dark  : darken($g-warning-color, 5%),
   ),
   danger: (
-    base  : #e74c3c,
-    light : lighten(#e74c3c, 10%),
-    dark  : darken(#e74c3c, 5%),
+    base  : $g-danger-color,
+    light : lighten($g-danger-color, 10%),
+    dark  : darken($g-danger-color, 5%),
   ),
 );
 
@@ -94,16 +116,4 @@ $g-color-palettes : (
   }
 }
 
-
-// color
-// ==================================================
-$g-color-white : #fff;
-$g-color-black : #000;
-
-$g-link-color  : #4078c0;
-$g-hover-color : pe-color(default);
-$g-text-color  : pe-color(default, dark);
-$g-key-color   : pe-color(default);
-
-$g-body-bg-color : $g-color-white;
 
