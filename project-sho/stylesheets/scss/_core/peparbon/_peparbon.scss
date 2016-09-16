@@ -32,40 +32,22 @@ _core/
 #### peparbon/variables
 
 * グローバル変数の定義。
-* グローバル変数名には、必ず `pe-` プレフィックスを付ける。
 
 #### peparbon/functions/
 
 * 便利機能の `@function` 定義ファイル置き場。
-* 基本的に、1 ファイルにつき 1 定義とする。
-* `@function 名` は、その機能（役割）に基づく、適切かつ分かりやすい名前にする。
-* `@function 名` には `pe-` プレフィックスを付ける（Sass の組み込み関数との衝突を避けるため）。
-* `@function` を定義した際は、必ず当ドキュメントを更新する。
 
 #### peparbon/helpers/
 
 * ライブラリ内でのみ使用する事を想定とした Helper 関数置き場。
-* 基本的に、1 ファイルにつき 1 定義とする。
-* `@function 名` は、その機能（役割）に基づく、適切かつ分かりやすい名前にする。
-* `@function 名` には アンダーバー `_` プレフィックスを付ける。
-* `@function` を定義した際は、必ず当ドキュメントを更新する。
 
 #### peparbon/css3/
 
 * CSS 3（ベンダープレフィックス対応）の `@mixin` 集。
-* `CSS プロパティ名` にベンダープレフィックスが付く場合
-    * `@mixin 名` は `CSS プロパティ名` と同名にする。
-    * `@mixin 引数値` は `CSS プロパティ値` と同機能にする。
-* `@mixin` を定義した際は、必ず当ドキュメントを更新する。
-* ドキュメントには（`@mixin` を使用した上での）ターゲットブラウザの対応状況を明記する。
 
 #### peparbon/addons/
 
 * CSS 3（ベンダープレフィックス対応）の `@mixin` 以外の `@mixin` 定義ファイル置き場。
-* 基本的に、1 ファイルにつき 1 定義とする。
-* `@mixin 名` は、その機能（役割）に基づく、適切かつ分かりやすい名前にする。
-* ライブラリの `@mixin 名` と、各プロジェクトの `@mixin 名` が衝突しないよう気をつける。
-* `@mixin` を定義した際は、必ず当ドキュメントを更新する。
 
 */
 @import "_variables";
@@ -80,7 +62,6 @@ library:
 @import "functions/_pe-ceil-decimal";
 @import "functions/_pe-color";
 @import "functions/_pe-root-font-size";
-// @import "functions/_pe-webfont";
 
 /*hide
 ---
