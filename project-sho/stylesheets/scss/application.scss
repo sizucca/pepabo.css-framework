@@ -11,7 +11,25 @@ framework:
 
 Project-SHO is @sho CSS Framework.
 
-（このフレームワークに関する思いの丈を書く）
+![](http://img-cdn.jg.jugem.jp/b8d/927914/20160831_1372845.png)
+
+### 略語集
+
+| 略記 | 単語 |
+| ---- | ---- |
+| `btn`  | `button` |
+| `bnr`  | `banner` |
+| `catg` | `category` |
+
+### 文言集
+
+| 統一表記  | 内容、BAD 例 |
+| ------------- | ------------- |
+| `申し込む`  | `申込` `申し込み` |
+| `お問い合わせ` | `問合せ` |
+| `〜ください。` | `下さい` と閉じない。 |
+| `更新する`  | 更新、編集を行うとき。 |
+| `登録する`  | 新たに登録するとき。 |
 
 */
 
@@ -22,7 +40,7 @@ framework:
   - Project-SHO/Foundation
 ---
 
-Foundation 関連の注意事項とか（あればここに書く）
+* 色はおしゃれな色を使ってね。
 
 */
 @import "application/foundation/_base";
@@ -35,11 +53,10 @@ framework:
   - Project-SHO/Layouts
 ---
 
-Layouts 関連の注意事項とか（あればここに書く）
+Layouts だ YO!
 
 */
-// @import "application/layouts/_l-container";
-// @import "application/layouts/_l-contents";
+@import "application/layouts/_l-contents";
 
 /*
 ---
@@ -48,7 +65,7 @@ framework:
   - Project-SHO/Objects
 ---
 
-Objects 関連の注意事項とか（あればここに書く）
+Objects だ YO!
 
 */
 
@@ -61,20 +78,12 @@ framework:
 */
 @import "application/objects/components/_c-alert";
 @import "application/objects/components/_c-btn";
+@import "application/objects/components/_c-heading";
 @import "application/objects/components/_c-btn-outline";
 @import "application/objects/components/_c-well";
 @import "application/objects/components/_c-input";
 @import "application/objects/components/_c-label";
-
-/*
----
-name: Typography
-framework:
-  - Project-SHO/Objects/Typography
----
-*/
-@import "application/objects/typography/_headings";
-@import "application/objects/typography/_text";
+@import "application/objects/components/_c-text";
 
 /*
 ---
