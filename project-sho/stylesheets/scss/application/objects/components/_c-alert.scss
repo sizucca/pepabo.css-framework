@@ -11,6 +11,8 @@ framework:
 <div class="c-alert c-alert--info">読んでほしいお知らせです。</div>
 <div class="c-alert c-alert--warning">気をつけて！ちゃんと読んでください！</div>
 <div class="c-alert c-alert--danger">すみません、だめでした。</div>
+<div class="c-alert c-alert--success icon">GOOOOD!</div>
+<div class="c-alert c-alert--danger icon">NO GOOD...</div>
 ```
 
 */
@@ -20,19 +22,46 @@ framework:
   line-height: 1.6;
   margin-bottom: 20px;
   padding: 1em 1.4em;
+  &.icon {
+    i {
+      display: inline-block;
+      margin-right: 0.5rem;
+      opacity: 0.6;
+    }
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 1em;
+      margin-right: 0.5rem;
+      opacity: 0.7;
+      width: 1em;
+    }
+  }
 
   // modifiers
   &.c-alert--success {
     background-color: pe-color(success,base);
+    &.icon:before {
+      @include pe-glyph(awesome, check);
+    }
   }
   &.c-alert--info {
     background-color: pe-color(info,base);
+    &.icon:before {
+      @include pe-glyph(awesome, bullhorn);
+    }
   }
   &.c-alert--warning {
     background-color: pe-color(warning,dark);
+    &.icon:before {
+      @include pe-glyph(awesome, warning);
+    }
   }
   &.c-alert--danger {
     background-color: $btn-bg-danger-color;
+    &.icon:before {
+      @include pe-glyph(awesome, close);
+    }
   }
 }
 
