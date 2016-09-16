@@ -1,0 +1,49 @@
+/*
+---
+name: l-contents
+framework:
+  - Project-SHO/Layouts
+  - Project-SHO/Layouts/l-contents
+---
+
+```html
+<div class="l-contents">
+  <div class="l-contents__main">
+    <div class="l-contents__main-inner">
+      main カラムです。
+    </div>
+  </div>
+  <div class="l-contents__side">
+    side カラムです。
+  </div>
+</div>
+```
+
+*/
+
+.l-contents {
+  @include pe-box-sizing(border-box);
+  @include pe-clearfix;
+  position: relative;
+  z-index: 1;
+  min-width: $g-contents-min-width;
+  min-height: 100%;
+  background-color: $g-contents-bg-color;
+}
+.l-contents__main {
+  float: right;
+  margin-left: -$g-contents-side-width;
+  width: 100%;
+}
+.l-contents__main-inner {
+  @include pe-box-sizing(border-box);
+  position: relative;
+  margin-left: $g-contents-side-width;
+  padding: 20px;
+  background-color: $g-contents-main-bg-color;
+}
+.l-contents__side {
+  @include pe-box-sizing(border-box);
+  width: $g-contents-side-width;
+  padding: 20px;
+}

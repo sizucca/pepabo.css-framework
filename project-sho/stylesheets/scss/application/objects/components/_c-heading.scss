@@ -1,0 +1,69 @@
+/*
+---
+name: c-heading
+framework:
+  - Project-SHO/Objects/Components
+  - Project-SHO/Objects/Components/c-heading
+---
+
+```html
+<p class="c-heading1">あいうえお</p>
+<p class="c-heading2">かきくけこ</p>
+<p class="c-heading3">さしすせそ</p>
+<p class="c-heading4">たちつてと</p>
+<p class="c-heading5">なにぬねの</p>
+<p class="c-heading6">はひふへほ</p>
+```
+
+*/
+
+.c-heading1,
+.c-heading2,
+.c-heading3,
+.c-heading4,
+.c-heading5,
+.c-heading6 {
+  font-weight: 400;
+  line-height: 1.2;
+  a {
+    color: $g-link-color;
+    text-decoration: none;
+    &:hover {
+      cursor: pointer;
+      color: $g-hover-color;
+      text-decoration: none;
+    }
+  }
+}
+
+.c-heading1 {
+  font-size: 2.4em;
+  margin: .54em 0;
+}
+
+.c-heading2 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.c-heading3 {
+  font-size: 1.75em;
+  margin: .75em 0;
+}
+
+.c-heading4 {
+  font-size: 1.5em;
+  margin: .83em 0;
+}
+
+.c-heading5 {
+  font-size: 1.3em;
+  margin: .93em 0;
+}
+
+.c-heading6 {
+  font-size: 1.17em;
+  margin: 1em 0;
+}
+
+

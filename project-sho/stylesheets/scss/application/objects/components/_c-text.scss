@@ -1,0 +1,44 @@
+/*
+---
+name: c-text
+framework:
+  - Project-SHO/Objects/Components
+  - Project-SHO/Objects/Components/c-text
+---
+
+```html
+<p class="c-text">
+  先生はセロのかっこうお父さんあたりを手から云い屋根裏ましず。
+  そしてそうまじめなたというドレミファらしない。
+  残念ますませへんございはたところがむとそっくりゆうべのとおりぐんぐんのまっ黒あたりのときをもぱっと生意気ですたて、
+  君までしんに云いれんですです。
+  云いすぎ何は両手で青くたてたくさんのほんとうの眼がいをもっ第二こどもげの司会と見てやるんまし。
+</p>
+```
+
+```html
+<small class="c-text-small">
+  小さい小さい小さい小さい小さい小さい小さい小さい小さい小さいテキスト
+</small>
+```
+
+```html
+<p>
+  狸は十走っ<span class="c-text-hl">ホール</span>のようがうたいで行っです。
+</p>
+```
+
+*/
+
+.c-text {
+  line-height: 1.75;
+  margin: 1rem 0;
+}
+
+.c-text-small {
+  font-size: 80%;
+}
+
+.c-text-hl {
+  background: $g-hl-color;
+}
